@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Jenssegers\Blade\Blade;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,5 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
     }
 }

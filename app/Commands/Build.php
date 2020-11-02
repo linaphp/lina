@@ -2,6 +2,7 @@
 
 namespace App\Commands;
 
+use Jenssegers\Blade\Blade;
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
 
@@ -28,7 +29,19 @@ class Build extends Command
      */
     public function handle()
     {
-        $this->info('Building...');
+        $path = getcwd();
+        $viewPath = $path.'/resources/views';
+        $compiledPath = $path.'/cache';
+        config(['view.paths' => $viewPath]);
+        config(['view.compiled' => $compiledPath]);
+
+        $this->info('before make blade');
+        $blade = new Blade($viewPath, $compiledPath);
+
+        $this->info('before make index page');
+        echo $blade->make('index', ['title' => 'Home page'])->render();
+
+        return 0;
     }
 
     /**
