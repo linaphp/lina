@@ -1,10 +1,10 @@
 <?php
 
-it('can build index page', function () {
-    exec("rm -rf ".base_path('tests/demo/cache/*'));
-    chdir(base_path('tests/demo'));
+it('can build index page with component', function () {
+    chdir('tests/demo');
+    exec('rm -rf build/*');
 
     $this->artisan('build')
         ->assertExitCode(0);
-//    $this->assertFileExists(base_path('tests/demo/build/index.html'));
+    $this->assertFileExists(base_path('tests/demo/build/hello/index.html'));
 });

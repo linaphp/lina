@@ -17,6 +17,7 @@
     ],
     "require": {
         "php": "^7.3",
+        "erusev/parsedown": "^1.7",
         "jenssegers/blade": "^1.4",
         "laravel-zero/framework": "^8.0"
     },

@@ -2,22 +2,12 @@
 
 namespace App\Providers;
 
-use Jenssegers\Blade\Blade;
-use Illuminate\Contracts\View\Factory;
+use App\MarkdownParser;
+use App\MarkdownParserInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
-
     /**
      * Register any application services.
      *
@@ -25,5 +15,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->bind(MarkdownParserInterface::class, MarkdownParser::class);
     }
 }
