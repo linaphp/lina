@@ -54,5 +54,4 @@ class Parser
     {
         return array_map('trim', explode(':', $line, 2));
     }
-
 }

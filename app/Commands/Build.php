@@ -6,6 +6,7 @@ use App\Parser;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
+use Illuminate\Contracts\Filesystem\Filesystem;
 
 class Build extends Command
 {
@@ -23,36 +24,51 @@ class Build extends Command
      */
     protected $description = 'Build html files from markdown';
 
+    protected Filesystem $storage;
+
     public function handle(Parser $parser)
     {
-        $path = getcwd();
-        $viewPath = $path.'/resources/views';
-        $compiledPath = $path.'/resources/cache';
-        config(['view.paths' => [$viewPath]]);
-        config(['view.compiled' => $compiledPath]);
+        $this->setConfigViewPaths($path = getcwd());
 
-        /** @var Storage $client */
-        $storage = Storage::createLocalDriver([
-            'root' => $path
-        ]);
-        $postFiles = $storage->allFiles('posts');
-        foreach ($postFiles as $file) {
-            $content = $storage->get($file);
-            // here we have to parse meta data and content
-            $data = $parser->parse($content);
+        $this->makeLocalStorage($path);
+
+        foreach ($this->storage->allFiles('posts') as $filePath) {
+            $data = array_merge(
+                $parser->parse($this->storage->get($filePath)),
+                ['slug' => $this->parseFileName($filePath)]
+            );
+
+            $this->info('building '.$filePath.'...');
+            $this->writeFile($data);
         }
 
         return 0;
     }
 
-    /**
-     * Define the command's schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule $schedule
-     * @return void
-     */
-    public function schedule(Schedule $schedule): void
+    protected function setConfigViewPaths($path): void
     {
-        // $schedule->command(static::class)->everyMinute();
+        config(['view.paths' => [$path.'/resources/views']]);
+        config(['view.compiled' => $path.'/resources/cache']);
+    }
+
+    protected function makeLocalStorage(string $path)
+    {
+        return $this->storage = Storage::createLocalDriver([
+            'root' => $path
+        ]);
+    }
+
+    protected function writeFile(array $data): bool
+    {
+        $this->storage->makeDirectory('build/'.$data['slug']);
+
+        return $this->storage->put('build/'.$data['slug'].'/index.html', view($data['layout'], $data)->render());
+    }
+
+    protected function parseFileName($file): string
+    {
+        preg_match('/^posts\/(.+)\.md$/', $file, $matches);
+
+        return $matches[1];
     }
 }
