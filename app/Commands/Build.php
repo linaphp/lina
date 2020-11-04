@@ -36,7 +36,7 @@ class Build extends Command
         foreach ($this->storage->allFiles('posts') as $filePath) {
             $data = array_merge(
                 $parser->parse($this->storage->get($filePath)),
-                ['slug' => $this->parseFileName($filePath)]
+                $this->parseFileName($filePath)
             );
 
             $this->info('building '.$filePath.'...');
@@ -76,10 +76,13 @@ class Build extends Command
         return $this->storage->put('build/'.$data['slug'].'/index.html', view($data['layout'], $data)->render());
     }
 
-    protected function parseFileName($file): string
+    protected function parseFileName($file): array
     {
-        preg_match('/^posts\/(.+)\.md$/', $file, $matches);
+        preg_match('/^posts\/(\d{4}-\d{2}-\d{2})-(.+)\.md$/', $file, $matches);
 
-        return $matches[1];
+        return [
+            'created_at' => $matches[1],
+            'slug'       => $matches[2]
+        ];
     }
 }
