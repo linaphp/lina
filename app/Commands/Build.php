@@ -46,7 +46,6 @@ class Build extends Command
             $content = $storage->get($file);
             // here we have to parse meta data and content
             $data = $parser->parse($content);
-            dd($data);
         }
 
         return 0;
