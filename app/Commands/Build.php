@@ -4,7 +4,6 @@ namespace App\Commands;
 
 use App\Parser;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
 use Illuminate\Contracts\Filesystem\Filesystem;
 
@@ -32,6 +31,8 @@ class Build extends Command
 
         $this->makeLocalStorage($path);
 
+        $posts = [];
+
         foreach ($this->storage->allFiles('posts') as $filePath) {
             $data = array_merge(
                 $parser->parse($this->storage->get($filePath)),
@@ -39,10 +40,20 @@ class Build extends Command
             );
 
             $this->info('building '.$filePath.'...');
-            $this->writeFile($data);
+            $this->buildPage($data);
+
+            $posts[] = $data;
         }
 
+        // build homepage
+        $this->buildIndexPage($posts);
+
         return 0;
+    }
+
+    protected function buildIndexPage(array $posts)
+    {
+        return $this->storage->put('build/index.html', view('index', ['posts' => $posts])->render());
     }
 
     protected function setConfigViewPaths($path): void
@@ -58,7 +69,7 @@ class Build extends Command
         ]);
     }
 
-    protected function writeFile(array $data): bool
+    protected function buildPage(array $data): bool
     {
         $this->storage->makeDirectory('build/'.$data['slug']);
 
