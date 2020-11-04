@@ -6,11 +6,11 @@ jobs:
   tests:
 
     runs-on: ubuntu-latest
-    
+
     strategy:
       fail-fast: true
       matrix:
-        php: [7.3, 7.4]
+        php: [7.4]
 
     steps:
     - uses: actions/checkout@v2
@@ -20,7 +20,7 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
-    
+
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:

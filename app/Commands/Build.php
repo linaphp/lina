@@ -3,7 +3,6 @@
 namespace App\Commands;
 
 use App\Parser;
-use Jenssegers\Blade\Blade;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
@@ -24,11 +23,6 @@ class Build extends Command
      */
     protected $description = 'Build html files from markdown';
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
     public function handle(Parser $parser)
     {
         $path = getcwd();
