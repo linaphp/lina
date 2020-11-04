@@ -34,6 +34,7 @@ it('can parse meta to array', function () {
     $meta = $this->parser->parseYaml(<<<EOF
 title: hello world
 layout: post
+
 tags[]: foo, bar, foo bar
 blank:
 EOF
