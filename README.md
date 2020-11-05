@@ -1,12 +1,14 @@
 # pekyll 
 
-[![tests](https://github.com/bangnokia/pekyll/workflows/Run%20test/badge.svg)](https://github.com/bangnokia/pekyll/actions)
-
 ![](https://banners.beyondco.de/pekyll.png?theme=light&packageName=composer+global+install+bangnokia%2Fpekyll&pattern=architect&style=style_1&description=static+blog+generator+by+php&md=1&showWatermark=1&fontSize=125px&images=book-open)
 
-static blog generator crafted by php with 😘. inspire from Jekyll.
-pekyll has power of `blade` template engine from `laravel`.
-and it's simple.
+[![tests](https://github.com/bangnokia/pekyll/workflows/Run%20test/badge.svg)](https://github.com/bangnokia/pekyll/actions)
+
+static blog generator crafted by php with 😘. inspires from [Jekyll](https://jekyllrb.com).
+
+pekyll has power of [`blade`](https://laravel.com/docs/8.x/blade) template engine from `laravel`. 
+
+and it's simple as puck.
 
 
 ## getting started
@@ -32,7 +34,7 @@ and it's simple.
 
 ## markdown file syntax for post
 
-- your markdown file must follow syntax: `yyyy-mm-dd-this-is-slug.md`. example `2020-11-01-hello-world.md`, then you will have `$post->created_at = '2020-11-01''` and `$post->slug = 'hellow-world'`
+- your markdown file must follow syntax: `yyyy-mm-dd-this-is-slug.md`. example `2020-11-01-hello-world.md` then will be parsed become `$post->created_at = '2020-11-01'` and `$post->slug = 'hellow-world'`
 - file content
 ```
 // the first is yaml likes format
@@ -45,6 +47,9 @@ tags[]: dog, cat, pekyll // $post->tags = ['dog', 'cat', 'pekyll']
 // markdown content bellow will be parsed as html content then assigns to $post->content
 *hello world*
 
+## appendix
+
+php is alive
 ```
 
 ## commands
