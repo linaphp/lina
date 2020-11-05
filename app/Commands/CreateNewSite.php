@@ -13,9 +13,15 @@ class CreateNewSite extends Command
 
     public function handle(Filesystem $filesystem)
     {
-        $filesystem->copyDirectory(
-            base_path('skeleton'),
-            getcwd().'/'.$this->argument('name')
-        );
+        $directory = $this->argument('name');
+
+        if ($filesystem->isDirectory($directory)) {
+            $this->error($directory.' already existed');
+            return 1;
+        }
+
+        $filesystem->copyDirectory(base_path('stubs'), getcwd().'/'.$directory);
+
+        return 0;
     }
 }

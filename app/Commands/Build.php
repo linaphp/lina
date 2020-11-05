@@ -25,11 +25,15 @@ class Build extends Command
 
     protected Filesystem $storage;
 
-    public function handle(Parser $parser)
+    public function handle(Parser $parser, Filesystem $filesystem)
     {
         $this->setConfigViewPaths($path = getcwd());
 
         $this->makeLocalStorage($path);
+
+        if (file_exists($postPath = $path.'/app/Post.php')) {
+            require $postPath;
+        }
 
         $posts = [];
 
@@ -39,13 +43,14 @@ class Build extends Command
                 $this->parseFileName($filePath)
             );
 
-            $this->info('building '.$filePath.'...');
-            $this->buildPage($data);
+            $post = new \Post($data);
 
-            $posts[] = $data;
+            $this->info('building '.$filePath.'...');
+            $this->buildPage($post);
+
+            $posts[] = $post;
         }
 
-        // build homepage
         $this->buildIndexPage($posts);
 
         return 0;
@@ -69,11 +74,14 @@ class Build extends Command
         ]);
     }
 
-    protected function buildPage(array $data): bool
+    protected function buildPage(\Post $post): bool
     {
-        $this->storage->makeDirectory('build/'.$data['slug']);
+        $this->storage->makeDirectory('build/'.$post->slug);
 
-        return $this->storage->put('build/'.$data['slug'].'/index.html', view($data['layout'], $data)->render());
+        return $this->storage->put(
+            'build/'.$post->slug.'/index.html',
+            view($post->layout, ['post' => $post])->render()
+        );
     }
 
     protected function parseFileName($file): array

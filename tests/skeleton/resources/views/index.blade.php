@@ -5,7 +5,7 @@
 
     <ul>
         @foreach($posts as $post)
-            <li><a href="/{{ $post['slug'] }}">[{{ $post['created_at'] }}] {{ $post['title'] }}</a></li>
+            <li><a href="/{{ $post->slug }}">[{{ $post->created_at }}] {{ $post->title }}</a></li>
         @endforeach
     </ul>
 @endsection

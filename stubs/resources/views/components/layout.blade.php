@@ -1,8 +1,7 @@
-@props(['title' => 'Home page'])
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{{ $title }}</title>
+	<title>{{ $title ?? 'Home page' }}</title>
 </head>
 <body>
 	{{ $slot }}

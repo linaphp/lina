@@ -8,9 +8,15 @@ it('can create a skeleton site', function () {
     $filesystem = new Illuminate\Filesystem\Filesystem();
 
     $this->assertEquals(
-        $filesystem->allFiles(base_path('skeleton')),
+        $filesystem->allFiles(base_path('stubs')),
         $filesystem->allFiles(getcwd().'/tests/tmp')
     );
+});
+
+it('can not create new site if directory existed', function () {
+    mkdir('tests/tmp');
+    $this->artisan('new tests/tmp')
+        ->assertExitCode(1);
 });
 
 afterEach(function () {

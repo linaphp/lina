@@ -30,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
                \Pest\Laravel\Commands\PestDatasetCommand::class,
                \Pest\Laravel\Commands\PestInstallCommand::class,
                \Pest\Laravel\Commands\PestTestCommand::class,
+               \NunoMaduro\Collision\Adapters\Laravel\Commands\TestCommand::class,
            ]);
         }
     }
