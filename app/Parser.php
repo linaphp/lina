@@ -21,8 +21,8 @@ class Parser
     public function parseYaml(string $text): array
     {
         $meta = [];
-        $lines = explode(PHP_EOL, $text);
-        foreach ($lines as $line) {
+
+        foreach (explode(PHP_EOL, $text) as $line) {
             if (blank($line)) {
                 continue;
             }
