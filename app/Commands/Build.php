@@ -3,41 +3,28 @@
 namespace App\Commands;
 
 use App\Parser;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 use LaravelZero\Framework\Commands\Command;
 use Illuminate\Contracts\Filesystem\Filesystem;
 
 class Build extends Command
 {
-    /**
-     * The signature of the command.
-     *
-     * @var string
-     */
     protected $signature = 'build';
 
-    /**
-     * The description of the command.
-     *
-     * @var string
-     */
-    protected $description = 'Build html files from markdown';
+    protected $description = 'build your app to html files';
 
     protected Filesystem $storage;
 
-    public function handle(Parser $parser, Filesystem $filesystem)
+    public function handle(Parser $parser)
     {
         $this->setConfigViewPaths($path = getcwd());
 
         $this->makeLocalStorage($path);
 
-        if (file_exists($postPath = $path.'/app/Post.php')) {
-            require $postPath;
-        }
+        $this->includePostClass($path);
 
-        $posts = [];
-
-        foreach ($this->storage->allFiles('posts') as $filePath) {
+        $posts = collect($this->storage->allFiles('posts'))->map(function ($filePath) use ($parser) {
             $data = array_merge(
                 $parser->parse($this->storage->get($filePath)),
                 $this->parseFileName($filePath)
@@ -48,15 +35,15 @@ class Build extends Command
             $this->info('building '.$filePath.'...');
             $this->buildPost($post);
 
-            $posts[] = $post;
-        }
+            return $post;
+        });
 
         $this->buildIndexPage($posts);
 
         return 0;
     }
 
-    protected function buildIndexPage(array $posts)
+    protected function buildIndexPage(Collection $posts)
     {
         return $this->storage->put('public/index.html', view('index', ['posts' => $posts])->render());
     }
@@ -93,4 +80,9 @@ class Build extends Command
             'slug'       => $matches[2]
         ];
     }
+
+   protected function includePostClass(string $path)
+   {
+       include_once $path.'/app/Post.php';
+   }
 }
