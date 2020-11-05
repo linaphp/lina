@@ -10,7 +10,7 @@ and it's simple.
 
 - install php 7.4
 - install [composer](https://getcomposer.org/download/)
-- Install `pekyll` with composer command: `composer require bangnokia/pekyll`
+- Install `pekyll` with composer command: `composer global require bangnokia/pekyll`
 - create new blog: `pekyll new yourblog`
 
 ## structure
