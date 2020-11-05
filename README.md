@@ -1,5 +1,3 @@
-![](https://banners.beyondco.de/pekyll.png?theme=light&packageName=composer+global+install+bangnokia%2Fpekyll&pattern=architect&style=style_1&description=static+blog+generator+by+php&md=1&showWatermark=1&fontSize=125px&images=book-open)
-
 # pekyll 
 
 [![tests](https://github.com/bangnokia/pekyll/workflows/Run%20test/badge.svg)](https://github.com/bangnokia/pekyll/actions)
