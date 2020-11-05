@@ -15,7 +15,8 @@
         "php": "^7.4",
         "erusev/parsedown": "^1.7",
         "illuminate/view": "^8.0",
-        "laravel-zero/framework": "^8.0"
+        "laravel-zero/framework": "^8.0",
+        "yosymfony/resource-watcher": "^3.0"
     },
     "require-dev": {
         "mockery/mockery": "^1.4.2",
