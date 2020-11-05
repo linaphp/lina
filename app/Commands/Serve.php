@@ -18,10 +18,6 @@ class Serve extends Command
 
     protected int $portOffset = 0;
 
-    protected Process $process;
-
-    protected ResourceWatcher $watcher;
-
     public function handle()
     {
         $this->line("<info>Starting development server:</info> http://{$this->host()}:{$this->port()}");
