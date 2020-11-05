@@ -3,13 +3,19 @@
 it('can create a skeleton site', function () {
     $this->artisan('new tests/tmp');
 
-    $this->assertDirectoryExists(getcwd().'/tests/tmp');
+    expect('tests/tmp')->toBeDirectory()
+        ->and(is_link('tests/tmp/public/images'))->toBeTrue()
+        ->and(readlink('tests/tmp/public/images'))->toBe(getcwd().'/tests/tmp/images')
+        ->and(is_link('tests/tmp/public/css'))->toBeTrue()
+        ->and(readlink('tests/tmp/public/css'))->toBe(getcwd().'/tests/tmp/resources/css')
+        ->and(is_link('tests/tmp/public/js'))->toBeTrue()
+        ->and(readlink('tests/tmp/public/js'))->toBe(getcwd().'/tests/tmp/resources/js');
 
     $filesystem = new Illuminate\Filesystem\Filesystem();
 
     $this->assertEquals(
         $filesystem->allFiles(base_path('stubs')),
-        $filesystem->allFiles(getcwd().'/tests/tmp')
+        $filesystem->allFiles('tests/tmp')
     );
 });
 

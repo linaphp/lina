@@ -22,6 +22,16 @@ class CreateNewSite extends Command
 
         $filesystem->copyDirectory(base_path('stubs'), getcwd().'/'.$directory);
 
+        $this->createSymbolicLinks($directory, $filesystem);
+
         return 0;
     }
+
+    protected function createSymbolicLinks($directory, Filesystem  $filesystem)
+    {
+        $filesystem->link(getcwd()."/{$directory}/images", getcwd()."/{$directory}/public/images");
+        $filesystem->link(getcwd()."/{$directory}/resources/css", getcwd()."/{$directory}/public/css");
+        $filesystem->link(getcwd()."/{$directory}/resources/js", getcwd()."/{$directory}/public/js");
+    }
 }
+
