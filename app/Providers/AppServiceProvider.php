@@ -21,17 +21,16 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         if (base_path() !== getcwd()) {
-            $this->app['config']->set('env', 'production');
-//            $this->app['config']->set('commands.remove', [
-//                \LaravelZero\Framework\Commands\InstallCommand::class,
-//                \LaravelZero\Framework\Commands\BuildCommand::class,
-//                \LaravelZero\Framework\Commands\MakeCommand::class,
-//                \LaravelZero\Framework\Commands\StubPublishCommand::class,
-//                \LaravelZero\Framework\Commands\RenameCommand::class,
-//                \Pest\Laravel\Commands\PestDatasetCommand::class,
-//                \Pest\Laravel\Commands\PestInstallCommand::class,
-//                \Pest\Laravel\Commands\PestTestCommand::class,
-//            ]);
+           $this->app['config']->set('commands.remove', [
+               \LaravelZero\Framework\Commands\InstallCommand::class,
+               \LaravelZero\Framework\Commands\BuildCommand::class,
+               \LaravelZero\Framework\Commands\MakeCommand::class,
+               \LaravelZero\Framework\Commands\StubPublishCommand::class,
+               \LaravelZero\Framework\Commands\RenameCommand::class,
+               \Pest\Laravel\Commands\PestDatasetCommand::class,
+               \Pest\Laravel\Commands\PestInstallCommand::class,
+               \Pest\Laravel\Commands\PestTestCommand::class,
+           ]);
         }
     }
 }
