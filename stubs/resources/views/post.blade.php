@@ -1,8 +1,6 @@
-@extends('layout', ['title' => $post->title])
-
-@section('content')
+<x-layout :title="$post->title">
     <h1>{{ $post->title }}</h1>
     <div>
         {!! $post->content !!}
     </div>
-@endsection
+</x-layout>

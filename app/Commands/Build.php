@@ -46,7 +46,7 @@ class Build extends Command
             $post = new \Post($data);
 
             $this->info('building '.$filePath.'...');
-            $this->buildPage($post);
+            $this->buildPost($post);
 
             $posts[] = $post;
         }
@@ -58,7 +58,7 @@ class Build extends Command
 
     protected function buildIndexPage(array $posts)
     {
-        return $this->storage->put('build/index.html', view('index', ['posts' => $posts])->render());
+        return $this->storage->put('public/index.html', view('index', ['posts' => $posts])->render());
     }
 
     protected function setConfigViewPaths($path): void
@@ -74,12 +74,12 @@ class Build extends Command
         ]);
     }
 
-    protected function buildPage(\Post $post): bool
+    protected function buildPost(\Post $post): bool
     {
-        $this->storage->makeDirectory('build/'.$post->slug);
+        $this->storage->makeDirectory('public/posts/'.$post->slug);
 
         return $this->storage->put(
-            'build/'.$post->slug.'/index.html',
+            'public/posts/'.$post->slug.'/index.html',
             view($post->layout, ['post' => $post])->render()
         );
     }

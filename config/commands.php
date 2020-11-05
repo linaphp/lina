@@ -73,8 +73,16 @@ return [
     |
     */
 
-    'remove' => [
-        // ..
-    ],
+    'remove' => base_path() !== getcwd() ? [
+        \LaravelZero\Framework\Commands\InstallCommand::class,
+        \LaravelZero\Framework\Commands\BuildCommand::class,
+        \LaravelZero\Framework\Commands\MakeCommand::class,
+        \LaravelZero\Framework\Commands\StubPublishCommand::class,
+        \LaravelZero\Framework\Commands\RenameCommand::class,
+        \Pest\Laravel\Commands\PestDatasetCommand::class,
+        \Pest\Laravel\Commands\PestInstallCommand::class,
+        \Pest\Laravel\Commands\PestTestCommand::class,
+        \NunoMaduro\Collision\Adapters\Laravel\Commands\TestCommand::class,
+    ] : [],
 
 ];
