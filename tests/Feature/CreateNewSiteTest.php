@@ -15,7 +15,7 @@ it('can create a skeleton site', function () {
 
     $this->assertEquals(
         $filesystem->allFiles(base_path('stubs')),
-        $filesystem->allFiles('tests/tmp')
+        $filesystem->allFiles(getcwd().'/tests/tmp')
     );
 });
 
