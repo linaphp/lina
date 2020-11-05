@@ -18,11 +18,9 @@ class Build extends Command
 
     public function handle(Parser $parser)
     {
-        $this->setConfigViewPaths($path = getcwd());
-
-        $this->makeLocalStorage($path);
-
-        $this->includePostClass($path);
+        $this->setConfigViewPaths($path = getcwd())
+            ->makeLocalStorage($path)
+            ->includePostClass($path);
 
         $posts = collect($this->storage->allFiles('posts'))->map(function ($filePath) use ($parser) {
             $data = array_merge(
@@ -48,17 +46,21 @@ class Build extends Command
         return $this->storage->put('public/index.html', view('index', ['posts' => $posts])->render());
     }
 
-    protected function setConfigViewPaths($path): void
+    protected function setConfigViewPaths($path): self
     {
         config(['view.paths' => [$path.'/resources/views']]);
         config(['view.compiled' => $path.'/resources/cache']);
+
+        return $this;
     }
 
-    protected function makeLocalStorage(string $path)
+    protected function makeLocalStorage(string $path): self
     {
-        return $this->storage = Storage::createLocalDriver([
+        $this->storage = Storage::createLocalDriver([
             'root' => $path
         ]);
+
+        return $this;
     }
 
     protected function buildPost(\Post $post): bool
@@ -81,8 +83,8 @@ class Build extends Command
         ];
     }
 
-   protected function includePostClass(string $path)
-   {
-       include_once $path.'/app/Post.php';
-   }
+    protected function includePostClass(string $path): void
+    {
+        include_once $path.'/app/Post.php';
+    }
 }
