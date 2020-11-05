@@ -11,7 +11,7 @@ and it's simple.
 - install php 7.4
 - install [composer](https://getcomposer.org/download/)
 - Install `pekyll` with composer command: `composer require bangnokia/pekyll`
-- Create new blog: `pekyll new yourblog`
+- create new blog: `pekyll new yourblog`
 
 ## structure
 
