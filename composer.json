@@ -3,7 +3,7 @@
     "description": "static blog generator",
     "keywords": ["pekyll", "laravel", "laravel zero", "console", "cli"],
     "homepage": "https://pekyll.test",
-    "type": "project",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
