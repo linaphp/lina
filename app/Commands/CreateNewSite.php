@@ -20,18 +20,15 @@ class CreateNewSite extends Command
             return 1;
         }
 
-        $filesystem->copyDirectory(base_path('stubs'), getcwd().'/'.$directory);
+        $filesystem->copyDirectory(base_path('stubs'), $sitePath = getcwd().'/'.$directory);
 
-        $this->createSymbolicLinks($directory, $filesystem);
+        dump($sitePath);
+
+        $this->call('link', [
+            'root' => $sitePath,
+        ]);
 
         return 0;
-    }
-
-    protected function createSymbolicLinks($directory, Filesystem  $filesystem)
-    {
-        $filesystem->link(getcwd()."/{$directory}/images", getcwd()."/{$directory}/public/images");
-        $filesystem->link(getcwd()."/{$directory}/resources/css", getcwd()."/{$directory}/public/css");
-        $filesystem->link(getcwd()."/{$directory}/resources/js", getcwd()."/{$directory}/public/js");
     }
 }
 

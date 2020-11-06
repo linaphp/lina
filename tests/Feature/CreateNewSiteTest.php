@@ -26,5 +26,6 @@ it('can not create new site if directory existed', function () {
 });
 
 afterEach(function () {
-    exec('rm -rf tests/tmp');
+    $filesystem = new \Illuminate\Filesystem\Filesystem();
+    $filesystem->deleteDirectory(base_path('tests/tmp'));
 });

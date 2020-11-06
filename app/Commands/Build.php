@@ -33,7 +33,7 @@ class Build extends Command
 
         $pages = collect(
             $this->storage->allFiles('resources/views/pages')
-        )->map(fn ($filePath) => $this->buildPage($filePath));
+        )->map(fn ($filePath) => $this->buildPage($filePath, $posts));
 
         $this->buildIndexPage($posts, $pages);
 
@@ -86,10 +86,13 @@ class Build extends Command
         return $post;
     }
 
-    protected function buildPage(string $filePath): string
+    protected function buildPage(string $filePath, Collection $posts): string
     {
         $pageSlug = str_replace('.blade.php', '', basename($filePath));
-        $this->storage->put("public/{$pageSlug}.html", view('pages.'.$pageSlug)->render());
+        $this->storage->put(
+            "public/{$pageSlug}.html",
+            view('pages.'.$pageSlug, ['posts' => $posts])->render()
+        );
 
         return $pageSlug;
     }
