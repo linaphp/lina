@@ -10,14 +10,14 @@ it('can build index page with component', function () {
         ->expectsOutput('building posts/2020-11-01-foo.md...')
         ->assertExitCode(0);
 
-    $this->assertFileExists($skeletonPath.'/public/posts/hello-world/index.html');
-    $this->assertFileExists($skeletonPath.'/public/posts/foo/index.html');
-    $this->assertFileDoesNotExist($skeletonPath.'/public/posts/bar/index.html');
+    $this->assertFileExists($skeletonPath.'/public/posts/hello-world.html');
+    $this->assertFileExists($skeletonPath.'/public/posts/foo.html');
+    $this->assertFileDoesNotExist($skeletonPath.'/public/posts/bar.html');
     $this->assertFileExists($skeletonPath.'/public/index.html');
 
     $this->assertEquals(
         file_get_contents(base_path('tests/expected/hello-world.html')),
-        file_get_contents($skeletonPath.'/public/posts/hello-world/index.html')
+        file_get_contents($skeletonPath.'/public/posts/hello-world.html')
     );
 
     $this->assertEquals(

@@ -68,7 +68,7 @@ class Build extends Command
         $this->storage->makeDirectory('public/posts/'.$post->slug);
 
         return $this->storage->put(
-            'public/posts/'.$post->slug.'/index.html',
+            "public/posts/{$post->slug}.html",
             view($post->layout, ['post' => $post])->render()
         );
     }
