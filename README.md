@@ -1,11 +1,11 @@
-# pekyll 
+# pekyll
 
 [![tests](https://github.com/bangnokia/pekyll/workflows/Run%20test/badge.svg)](https://github.com/bangnokia/pekyll/actions)
 
 
 static blog generator crafted by php with 😘. inspires from [Jekyll](https://jekyllrb.com).
 
-pekyll has power of [`blade`](https://laravel.com/docs/8.x/blade) template engine from `laravel`. 
+pekyll has power of [`blade`](https://laravel.com/docs/8.x/blade) template engine from `laravel`.
 
 and it's simple as puck.
 
@@ -33,8 +33,10 @@ and it's simple as puck.
 
 ## markdown file syntax for post
 
-- your markdown file must follow syntax: `yyyy-mm-dd-this-is-slug.md`. example `2020-11-01-hello-world.md` then will be parsed become `$post->created_at = '2020-11-01'` and `$post->slug = 'hellow-world'`
-- file content
+your markdown file must follow syntax: `yyyy-mm-dd-this-is-slug.md`. example `2020-11-01-hello-world.md` then will be parsed become `$post->created_at = '2020-11-01'` and `$post->slug = 'hellow-world'`
+
+file content
+
 ```
 // the first is yaml likes format
 ---
@@ -55,4 +57,4 @@ php is alive
 
 - `pekyll new`: create new fresh blog
 - `pekyll build`: build your blog to html files in public folder
-- `pekyll serve`: run a development server 
+- `pekyll serve`: run a development server
