@@ -4,6 +4,7 @@ namespace App\Commands;
 
 use App\Parser;
 use Illuminate\Support\Collection;
+use Dotenv\Parser\ParserInterface;
 use Illuminate\Support\Facades\Storage;
 use LaravelZero\Framework\Commands\Command;
 use Illuminate\Contracts\Filesystem\Filesystem;
@@ -16,34 +17,37 @@ class Build extends Command
 
     protected Filesystem $storage;
 
+    protected Parser $parser;
+
     public function handle(Parser $parser)
     {
+        $this->parser = $parser;
+
         $this->setConfigViewPaths($path = getcwd())
             ->makeLocalStorage($path)
             ->includePostClass($path);
 
-        $posts = collect($this->storage->allFiles('posts'))->map(function ($filePath) use ($parser) {
-            $data = array_merge(
-                $parser->parse($this->storage->get($filePath)),
-                $this->parseFileName($filePath)
-            );
+        $posts = collect(
+            $this->storage->allFiles('posts')
+        )->map(fn($filePath) => $this->buildPost($filePath));
 
-            $post = new \Post($data);
+        $pages = collect(
+            $this->storage->allFiles('resources/views/pages')
+        )->map(fn ($filePath) => $this->buildPage($filePath));
 
-            $this->info('building '.$filePath.'...');
-            $this->buildPost($post);
+        $this->buildIndexPage($posts, $pages);
 
-            return $post;
-        });
-
-        $this->buildIndexPage($posts);
+        $this->error(memory_get_peak_usage(true)/1024/1024 . 'MB');
 
         return 0;
     }
 
-    protected function buildIndexPage(Collection $posts)
+    protected function buildIndexPage(Collection $posts, Collection $pages)
     {
-        return $this->storage->put('public/index.html', view('index', ['posts' => $posts])->render());
+        return $this->storage->put(
+            'public/index.html',
+            view('index', ['posts' => $posts, 'page' => $pages])->render()
+        );
     }
 
     protected function setConfigViewPaths($path): self
@@ -63,14 +67,31 @@ class Build extends Command
         return $this;
     }
 
-    protected function buildPost(\Post $post): bool
+    protected function buildPost(string $filePath): \Post
     {
-        $this->storage->makeDirectory('public/posts/'.$post->slug);
+        $attributes = array_merge(
+            $this->parser->parse($this->storage->get($filePath)),
+            $this->parseFileName($filePath)
+        );
 
-        return $this->storage->put(
+        $post = new \Post($attributes);
+
+        $this->info('building '.$filePath.'...');
+
+        $this->storage->put(
             "public/posts/{$post->slug}.html",
             view($post->layout, ['post' => $post])->render()
         );
+
+        return $post;
+    }
+
+    protected function buildPage(string $filePath): string
+    {
+        $pageSlug = str_replace('.blade.php', '', basename($filePath));
+        $this->storage->put("public/{$pageSlug}.html", view('pages.'.$pageSlug)->render());
+
+        return $pageSlug;
     }
 
     protected function parseFileName($file): array

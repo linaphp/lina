@@ -13,9 +13,21 @@ class Post
 {
     private array $attributes;
 
+    /**
+     * Post constructor.
+     * From this point, you can customize what you want for the post data,
+     * such as default layout, transform attributes...
+     *
+     * @param  array  $attributes
+     */
     public function __construct(array $attributes)
     {
         $this->attributes = $attributes;
+    }
+
+    public function link(): string
+    {
+        return "/posts/{$this->slug}.html";
     }
 
     public function attributes(): array
