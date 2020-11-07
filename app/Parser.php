@@ -22,7 +22,7 @@ class Parser
     {
         $meta = [];
 
-        foreach (explode(PHP_EOL, $text) as $line) {
+        foreach (preg_split("/\\r\\r|\\r|\\n/", $text) as $line) {
             if (blank($line)) {
                 continue;
             }

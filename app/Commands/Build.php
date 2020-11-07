@@ -37,8 +37,6 @@ class Build extends Command
 
         $this->buildIndexPage($posts, $pages);
 
-        $this->error(memory_get_peak_usage(true)/1024/1024 . 'MB');
-
         return 0;
     }
 
