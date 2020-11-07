@@ -4,7 +4,6 @@ namespace App\Commands;
 
 use App\Parser;
 use Illuminate\Support\Collection;
-use Dotenv\Parser\ParserInterface;
 use Illuminate\Support\Facades\Storage;
 use LaravelZero\Framework\Commands\Command;
 use Illuminate\Contracts\Filesystem\Filesystem;

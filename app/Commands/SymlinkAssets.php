@@ -3,10 +3,9 @@
 namespace App\Commands;
 
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
 
-class SymlinkCommand extends Command
+class SymlinkAssets extends Command
 {
     protected $signature = 'link {root?}';
 
