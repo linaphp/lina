@@ -11,7 +11,7 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 
 class Build extends Command
 {
-    protected $signature = 'build';
+    protected $signature = 'build {--production}';
 
     protected $description = 'build your app to html files';
 

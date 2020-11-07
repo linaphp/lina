@@ -22,11 +22,11 @@ class CreateNewSite extends Command
 
         $filesystem->copyDirectory(base_path('stubs'), $sitePath = getcwd().'/'.$directory);
 
-        dump($sitePath);
-
         $this->call('link', [
             'root' => $sitePath,
         ]);
+
+        $this->info("Your blog scaffolded successfully! 👏");
 
         return 0;
     }
