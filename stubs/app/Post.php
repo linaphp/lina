@@ -24,8 +24,7 @@ class Post
     {
         $this->attributes = $attributes;
     }
-
-    public function link(): string
+    public function link()
     {
         return "/posts/{$this->slug}.html";
     }
