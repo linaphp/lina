@@ -71,7 +71,8 @@ class Serve extends Command
             '-S',
             $this->host().':'.$this->port(),
             '-t',
-            'public'
+            'public',
+            base_path('server.php')
         ];
     }
 
