@@ -3,7 +3,7 @@
 use App\Parser;
 use App\Builder;
 
-require 'vendor/autoload.php';
+require __DIR__.'vendor/autoload.php';
 
 // I have no idea about these code
 $app = require_once __DIR__.'/bootstrap/app.php';
