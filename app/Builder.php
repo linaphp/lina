@@ -34,6 +34,11 @@ class Builder
         ]);
     }
 
+    public function storage()
+    {
+        return $this->storage;
+    }
+
     protected function setConfigViewPaths(string $path = null): self
     {
         $path = $path ?? $this->workingPath;
