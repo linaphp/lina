@@ -3,7 +3,7 @@
 use App\Parser;
 use App\Builder;
 
-require __DIR__.'vendor/autoload.php';
+require __DIR__.'/vendor/autoload.php';
 
 // I have no idea about these code
 $app = require_once __DIR__.'/bootstrap/app.php';
@@ -17,7 +17,7 @@ $kernel->handle(
 $uri = urldecode(
     parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
 );
-$uri = $uri === '/' ? 'index.html' : $uri;
+$uri = $uri === '/' ? '/index.html' : $uri;
 
 $builder = new Builder(getcwd(), $app->make(Parser::class));
 $posts = collect($builder->storage()->files('posts'))->map(fn($filePath) => $builder->makePost($filePath));

@@ -22,13 +22,13 @@ class Serve extends Command
     {
         $this->line("<info>Starting development server:</info> http://{$this->host()}:{$this->port()}");
 
-        $watcher = $this->makeWatcher();
         $process = $this->startProcess();
+        $watcher = $this->makeWatcher();
 
         while ($process->isRunning()) {
-            if ($watcher->findChanges()->hasChanges()) {
-                $this->call('build');
-            }
+            // if ($watcher->findChanges()->hasChanges()) {
+            //     $this->call('build');
+            // }
             usleep(0.5 * 1000000);
         }
 
