@@ -31,6 +31,3 @@ if (preg_match('/^\/posts\/(.+)\.html$/', $uri, $matches) === 1) {
 } else {
     return false;
 }
-
-
-
