@@ -6,6 +6,7 @@ use App\Builder;
 require __DIR__.'/vendor/autoload.php';
 
 // I have no idea about these code
+// should investigate later
 $app = require_once __DIR__.'/bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
 $kernel->handle(
