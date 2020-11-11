@@ -2,9 +2,9 @@
 
 namespace App;
 
+use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Contracts\Filesystem\Filesystem;
 
 class Builder
 {
@@ -72,7 +72,6 @@ class Builder
         ];
     }
 
-
     public function buildPost(\Post $post): \Post
     {
         $this->storage->put(
@@ -97,21 +96,13 @@ class Builder
 
     protected function buildPage(string $filePath, Collection $posts): string
     {
-        $pageSlug = str_replace('.blade.php', '', basename($filePath));
+        $slug = str_replace('.blade.php', '', basename($filePath));
 
         $this->storage->put(
-            "/public/{$pageSlug}.html",
-            view('pages.'.$pageSlug, ['posts' => $posts])->render()
+            "/public/{$slug}.html",
+            view('pages.'.$slug, ['posts' => $posts])->render()
         );
 
-        return $pageSlug;
-    }
-
-    public function buildIndexPage(Collection $posts, Collection $pages)
-    {
-        return $this->storage->put(
-            '/public/index.html',
-            view('index', ['posts' => $posts, 'page' => $pages])->render()
-        );
+        return $slug;
     }
 }
