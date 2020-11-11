@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
-use Symfony\Component\Finder\SplFileInfo;
 use Illuminate\Contracts\Filesystem\Filesystem;
 
 class Builder
@@ -12,8 +11,6 @@ class Builder
     protected string $workingPath;
 
     protected Parser $parser;
-
-    protected Filesystem $filesystem;
 
     protected Filesystem $storage;
 
