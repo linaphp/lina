@@ -56,5 +56,16 @@ php is alive
 ## commands
 
 - `pekyll new`: create new fresh blog
-- `pekyll build`: build your blog to html files in public folder
-- `pekyll serve`: run a development server
+- `pekyll build`: build your blog to html files and copy assets folders `images`, `resources/css`, `resources/js` into `public` folder
+- `pekyll serve`: run a development server, remove replace assets folders in public by symbolic link. So please remember run build command if you run serve command
+
+## routes
+
+There are only 2 types of route:
+- `page`: `xxx.html` rendered from `resources/views/pages`
+- `post`: `posts/xxx.html` rendered from `posts/`
+
+## how it works
+
+- `pekyll` parse content of file in the `posts` directory to make `post` html file. After that, it starts build `pages`. There for you can access all the posts in the pages view via `$posts` variable, it's a [`Collection`](https://laravel.com/docs/8.x/collections#introduction) of `Post` class. You are free to filters go get what you want here.
+
