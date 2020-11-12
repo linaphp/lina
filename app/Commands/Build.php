@@ -14,11 +14,17 @@ class Build extends Command
 
     public function handle(Parser $parser)
     {
+        $this->info('building...');
+
+        $this->call('copy-assets');
+
         $builder = new Builder(getcwd(), $parser);
 
         $posts = $builder->buildPosts();
 
         $builder->buildPages($posts);
+
+        $this->info('building completed!');
 
         return 0;
     }

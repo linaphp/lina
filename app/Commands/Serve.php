@@ -23,12 +23,10 @@ class Serve extends Command
         $this->line("<info>Starting development server:</info> http://{$this->host()}:{$this->port()}");
 
         $process = $this->startProcess();
-        $watcher = $this->makeWatcher();
+
+        $this->callSilent('link');
 
         while ($process->isRunning()) {
-            // if ($watcher->findChanges()->hasChanges()) {
-            //     $this->call('build');
-            // }
             usleep(0.5 * 1000000);
         }
 
@@ -50,18 +48,6 @@ class Serve extends Command
         });
 
         return $process;
-    }
-
-    protected function makeWatcher()
-    {
-        $watcher = new ResourceWatcher(
-            new ResourceCacheMemory(),
-            (new Finder())->files()->in(['app', 'posts', 'resources']),
-            new Crc32ContentHash()
-        );
-        $watcher->initialize();
-
-        return $watcher;
     }
 
     protected function serverCommand()

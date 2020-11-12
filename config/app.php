@@ -57,4 +57,10 @@ return [
         App\Providers\AppServiceProvider::class,
         \Illuminate\View\ViewServiceProvider::class,
     ],
+
+    'asset_paths' => [
+        'images' => 'public/images',
+        'resources/css' => 'public/css',
+        'resources/js' => 'public/js',
+    ]
 ];

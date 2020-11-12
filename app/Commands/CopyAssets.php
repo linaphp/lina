@@ -2,43 +2,25 @@
 
 namespace App\Commands;
 
-use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Filesystem\Filesystem;
 use LaravelZero\Framework\Commands\Command;
 
 class CopyAssets extends Command
 {
-    /**
-     * The signature of the command.
-     *
-     * @var string
-     */
-    protected $signature = 'command:name';
+    protected $signature = 'copy-assets';
 
-    /**
-     * The description of the command.
-     *
-     * @var string
-     */
     protected $description = 'Command description';
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle()
+    public function handle(Filesystem $filesystem)
     {
-        //
-    }
+        foreach (config('app.asset_paths') as $source => $mirror) {
+            if (is_link($mirror)) {
+                unlink($mirror);
+            } else {
+                $filesystem->deleteDirectory($mirror, true);
+            }
 
-    /**
-     * Define the command's schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule $schedule
-     * @return void
-     */
-    public function schedule(Schedule $schedule): void
-    {
-        // $schedule->command(static::class)->everyMinute();
+            $filesystem->copyDirectory($source, $mirror);
+        }
     }
 }
