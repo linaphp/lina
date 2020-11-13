@@ -17,7 +17,7 @@ class SymlinkAssets extends Command
     {
         $sitePath = $this->argument('root') ?: getcwd();
 
-        foreach ($this->linkableDirectories() as $source => $target) {
+        foreach (config('app.asset_paths') as $source => $target) {
             if ($filesystem->isDirectory($targetLink = "{$sitePath}/{$target}")) {
                 $filesystem->deleteDirectory($targetLink);
             }
@@ -26,14 +26,5 @@ class SymlinkAssets extends Command
 
             $filesystem->link("{$sitePath}/{$source}", $targetLink);
         }
-    }
-
-    protected function linkableDirectories(): array
-    {
-        return [
-            'images'        => 'public/images',
-            'resources/css' => 'public/css',
-            'resources/js'  => 'public/js'
-        ];
     }
 }
