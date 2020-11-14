@@ -18,13 +18,13 @@ class SymlinkAssets extends Command
         $sitePath = $this->argument('root') ?: getcwd();
 
         foreach (config('app.asset_paths') as $source => $target) {
-            if ($filesystem->isDirectory($targetLink = "{$sitePath}/{$target}")) {
-                $filesystem->deleteDirectory($targetLink);
+            if (is_link($target)) {
+                unlink($target);
+            } elseif ($filesystem->isDirectory($target)) {
+                $filesystem->deleteDirectory($target);
             }
 
-            $filesystem->delete($targetLink);
-
-            $filesystem->link("{$sitePath}/{$source}", $targetLink);
+            $filesystem->link($sitePath.'/'.$source, $sitePath.'/'.$target);
         }
     }
 }
