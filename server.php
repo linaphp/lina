@@ -2,11 +2,12 @@
 
 use App\Parser;
 use App\Builder;
+use Illuminate\Contracts\Console\Kernel;
 
 require __DIR__.'/vendor/autoload.php';
 
 $app = require_once __DIR__.'/bootstrap/app.php';
-$kernel = $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+$kernel = $app->make(Kernel::class)->bootstrap();
 
 $uri = urldecode(
     parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
@@ -19,6 +20,7 @@ $posts = collect($builder->storage()->files('posts'))->map(fn($filePath) => $bui
 if (preg_match('/^\/posts\/(.+)\.html$/', $uri, $matches) === 1) {
     $slug = $matches[1];
     $post = $posts->first(fn($post) => $post->slug === $slug);
+
     echo view($post->layout, ['post' => $post])->render();
 } elseif (preg_match('/^\/([a-zA-Z_0-9\-]+)\.html$/', $uri, $matches) === 1) {
     echo view('pages.'.$matches[1], ['posts' => $posts])->render();
