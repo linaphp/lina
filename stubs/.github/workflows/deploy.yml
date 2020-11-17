@@ -27,6 +27,8 @@ jobs:
       - name: Build
         run: pekyll build
 
+      - run: rm ./public/.gitignore
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
