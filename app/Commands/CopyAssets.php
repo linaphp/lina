@@ -17,7 +17,7 @@ class CopyAssets extends Command
             if (is_link($mirror)) {
                 unlink($mirror);
             } else {
-                $filesystem->deleteDirectory($mirror, true);
+                $filesystem->deleteDirectory($mirror);
             }
 
             $filesystem->copyDirectory($source, $mirror);

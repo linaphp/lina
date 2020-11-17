@@ -16,7 +16,7 @@ class Build extends Command
     {
         $this->info('building...');
 
-        $this->call('copy-assets');
+        $this->call(CopyAssets::class);
 
         $builder = new Builder(getcwd(), $parser);
 
