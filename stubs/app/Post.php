@@ -3,6 +3,8 @@
 /**
  * Class Post
  *
+ * These minimun attributes should be required by default to generate the post
+ *
  * @property string $title
  * @property string $slug
  * @property string $content
@@ -24,6 +26,7 @@ class Post
     {
         $this->attributes = $attributes;
     }
+
     public function link()
     {
         return "/posts/{$this->slug}.html";
