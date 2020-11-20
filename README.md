@@ -85,5 +85,6 @@ By default, `pekyll` support for auto deploy on gh-pages using github action. If
 
 ## road map
 
-[] support tags for each post
-[] improve memories when load all posts every single request of  `pekyll serve` command
+- [x] add `pekyll serve` command for development
+- [ ] support tags for each post
+- [ ] improve memories when load all posts every single request of  `pekyll serve` command
