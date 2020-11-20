@@ -7,7 +7,11 @@ static blog generator crafted by php with 😘. inspires from [Jekyll](https://j
 
 pekyll has power of [`blade`](https://laravel.com/docs/8.x/blade) template engine from `laravel`.
 
-and it's simple.
+## features
+
+- generate blog posts from markdown + yaml meta fields
+- generate page
+- support github pages deployment as default
 
 
 ## getting started
@@ -78,3 +82,8 @@ There are only 2 types of route:
 ### github pages
 
 By default, `pekyll` support for auto deploy on gh-pages using github action. If you want do some customize, please take a look at `.github/workflows/deploy.yml`.
+
+## road map
+
+[] support tags for each post
+[] improve memories when load all posts every single request of  `pekyll serve` command
