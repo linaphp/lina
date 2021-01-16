@@ -19,7 +19,7 @@ $uri = urldecode(
 $uri = $uri === '/' ? '/index.html' : $uri;
 
 $builder = new Builder(getcwd(), $app->make(Parser::class));
-$posts = collect($builder->storage()->files('posts'))->map(fn($filePath) => $builder->makePost($filePath));
+$posts = collect($builder->storage()->files('posts'))->reverse()->map(fn($filePath) => $builder->makePost($filePath));
 
 if (preg_match('/^\/posts\/(.+)\.html$/', $uri, $matches) === 1) {
     $slug = $matches[1];
