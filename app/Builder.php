@@ -49,7 +49,8 @@ class Builder
     {
         return collect($this->storage->files('/posts'))
             ->map(fn($filePath) => $this->makePost($filePath))
-            ->map(fn(\Post $post) => $this->buildPost($post));
+            ->map(fn(\Post $post) => $this->buildPost($post))
+            ->reverse();
     }
 
     public function makePost(string $filePath): \Post
