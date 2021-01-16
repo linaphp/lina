@@ -31,4 +31,5 @@ jobs:
     - name: Run test suite
       run: |
         php -v
-        ./vendor/bin/pest
+        pwd
+        vendor/bin/pest
