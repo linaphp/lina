@@ -1,7 +1,7 @@
 <?php
 
 it('can build index page with component', function () {
-    $skeletonPath = base_path('tests/skeleton');
+    $skeletonPath = __DIR__.'/../skeleton';
     chdir($skeletonPath);
     exec('rm -rf public/*');
 
