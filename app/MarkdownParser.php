@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Parsedown;
+use ParsedownExtra;
 
 class MarkdownParser implements MarkdownParserInterface
 {
@@ -10,7 +10,7 @@ class MarkdownParser implements MarkdownParserInterface
 
     public function __construct()
     {
-        $this->driver = new Parsedown();
+        $this->driver = new ParsedownExtra();
     }
 
     public function parse(string $text): string
