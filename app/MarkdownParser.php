@@ -6,7 +6,7 @@ use ParsedownExtra;
 
 class MarkdownParser implements MarkdownParserInterface
 {
-    protected Parsedown $driver;
+    protected ParsedownExtra $driver;
 
     public function __construct()
     {
