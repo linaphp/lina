@@ -16,6 +16,7 @@
         "erusev/parsedown": "^1.7",
         "erusev/parsedown-extra": "^0.8.1",
         "illuminate/view": "^8.0",
+        "keinos/parsedown-toc": "^1.1",
         "laravel-zero/framework": "^8.0",
         "yosymfony/resource-watcher": "^3.0"
     },
