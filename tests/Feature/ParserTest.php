@@ -58,5 +58,5 @@ EOF
 );
 
     $this->assertEquals('foo', $result['title']);
-    $this->assertEquals('<h1>hello</h1>', $result['content']);
+    $this->assertEquals('<h1 id="hello" name="hello">hello</h1>', $result['content']);
 });

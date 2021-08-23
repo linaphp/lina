@@ -2,15 +2,15 @@
 
 namespace App;
 
-use ParsedownExtra;
+use ParsedownToC;
 
 class MarkdownParser implements MarkdownParserInterface
 {
-    protected ParsedownExtra $driver;
+    protected ParsedownToC $driver;
 
     public function __construct()
     {
-        $this->driver = new ParsedownExtra();
+        $this->driver = new ParsedownToC();
     }
 
     public function parse(string $text): string
