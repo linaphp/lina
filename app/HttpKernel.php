@@ -7,11 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class HttpKernel implements Kernel
 {
-    protected Router $router;
-
-    public function __construct(Router $router)
+    public function __construct(protected Router $router)
     {
-        $this->router = $router;
     }
 
     public function bootstrap()

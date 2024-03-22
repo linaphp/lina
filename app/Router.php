@@ -2,12 +2,13 @@
 
 namespace BangNokia\Pekyll;
 
+use BangNokia\Pekyll\Contracts\Renderer;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class Router
 {
-    public function __construct(protected ContentFinder $contentFinder)
+    public function __construct(protected ContentFinder $contentFinder, protected Renderer $renderer)
     {
     }
 
@@ -17,17 +18,13 @@ class Router
 
         $path = $this->escape($path);
 
-        $basePath = getcwd() . '/contents/';
+        $contentFilePath = $this->contentFinder->find($path);
 
-        // the root path must be where the serve command pwd
-        $contentFile = $basePath . ($path ?: 'index');
-
-
-        $contentFilePath = $this->contentFinder->find($contentFile);
-
-        $content = file_get_contents($contentFile);
-
-        return new Response('Hello, World! haha');
+        return new Response(
+            $this->renderer->render($contentFilePath),
+            200,
+            ['Content-Type' => 'text/html']
+        );
     }
 
     protected function escape(string $path): string

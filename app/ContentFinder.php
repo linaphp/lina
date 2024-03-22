@@ -10,9 +10,9 @@ class ContentFinder
 {
     protected ?string $workingDir = null;
 
-    public function __construct()
+    public function __construct(string $workingDir = null)
     {
-        $this->workingDir = $this->workingDir ?: getcwd() . '/content/';
+        $this->workingDir = $workingDir ?: getcwd() . '/content/';
     }
 
     /**
