@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="text-center">{{ $data->title }}</h1>
 
-    <div>{{ $data->createdAt }}</div>
+    <time>{{ $data->createdAt }}</time>
     <article>
         {!! $data->content !!}
     </article>

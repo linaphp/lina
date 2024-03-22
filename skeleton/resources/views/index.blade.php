@@ -12,7 +12,6 @@
                     <a href="{{ $post->url() }}">{{ $post->title }}</a>
                 </li>
             @endforeach
-            <li></li>
         </ul>
     </div>
 @endsection

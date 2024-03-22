@@ -8,7 +8,7 @@ class Content
 
     public string $content;
 
-    public string $createdAt;
+    public ?string $createdAt;
 
     public array $meta;
 
