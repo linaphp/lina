@@ -7,19 +7,23 @@ use Symfony\Component\HttpFoundation\Response;
 
 class Router
 {
+    public function __construct(protected ContentFinder $contentFinder)
+    {
+    }
+
     public function handle(Request $request): Response
     {
         $path = $request->getPathInfo();
 
         $path = $this->escape($path);
 
+        $basePath = getcwd() . '/contents/';
+
         // the root path must be where the serve command pwd
+        $contentFile = $basePath . ($path ?: 'index');
 
-        $contentFile = sprintf('%s/contents/%s.md', getcwd(), $path);
 
-        if (!file_exists($contentFile)) {
-            return new Response("Content file [$path] not found", 404);
-        }
+        $contentFilePath = $this->contentFinder->find($contentFile);
 
         $content = file_get_contents($contentFile);
 

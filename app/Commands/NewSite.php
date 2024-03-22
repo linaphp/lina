@@ -20,7 +20,7 @@ class NewSite extends Command
             return 1;
         }
 
-        $filesystem->copyDirectory(base_path('stubs'), $sitePath = getcwd().'/'.$directory);
+        $filesystem->copyDirectory(base_path('skeleton'), $sitePath = getcwd().'/'.$directory);
 
         $this->info("Your blog scaffolded successfully! 👏");
 

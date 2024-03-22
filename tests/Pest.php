@@ -10,3 +10,8 @@ expect()->extend('toBeMatchDirectory', function (string $source) {
 
     return $this;
 });
+
+function chdirToSkeleton(): void
+{
+    chdir(__DIR__.'/../skeleton');
+}
