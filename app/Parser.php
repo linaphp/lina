@@ -17,14 +17,12 @@ class Parser
     {
         ['yaml' => $yaml, 'markdown' => $markdown] = $this->classify($text);
 
-        return array_merge($this->parseYaml($yaml), ['content' => $this->markdownParser->parse($markdown)]);
+        return array_merge($this->parseFrontMatter($yaml), ['content' => $this->markdownParser->parse($markdown)]);
     }
 
-    public function parseYaml(string $text): array
+    public function parseFrontMatter(string $text): array
     {
-        $meta = Yaml::parse($text);
-
-        return $meta;
+        return Yaml::parse($text);
     }
 
     public function classify(string $text): array

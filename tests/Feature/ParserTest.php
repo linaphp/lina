@@ -33,7 +33,7 @@ EOF
 });
 
 it('can parse meta to array', function () {
-    $meta = $this->parser->parseYaml(<<<EOF
+    $meta = $this->parser->parseFrontMatter(<<<EOF
 title: hello world
 layout: post
 tags:
