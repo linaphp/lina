@@ -9,6 +9,8 @@ it('can create a skeleton site', function () {
         ->and('tests/tmp/content/posts')->toBeDirectory()
         ->and('tests/tmp/content/index.md')->toBeFile()
         ->and('tests/tmp/public')->toBeDirectory()
+        ->and('tests/tmp/resources/views/index.blade.php')->toBeFile()
+        ->and('tests/tmp/resources/views/post.blade.php')->toBeFile()
         ;
 });
 
