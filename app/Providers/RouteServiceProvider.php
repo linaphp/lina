@@ -15,7 +15,7 @@ class RouteServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(Router::class, function ($app) {
-            return new \BangNokia\Pekyll\Router($app, $app->make(ContentFinder::class), $app->make(Renderer::class));
+            return new \BangNokia\Pekyll\Router($app, $app->make(ContentFinder::class));
         });
     }
 

@@ -3,10 +3,12 @@
 namespace BangNokia\Pekyll;
 
 use BangNokia\Pekyll\Contracts\Renderer;
+use Illuminate\Support\Facades\Blade;
 
 class MarkdownRenderer implements Renderer
 {
     protected Parser $parser;
+
     public function __construct(protected string $rootDir)
     {
         $this->parser = new Parser(new MarkdownParser());
@@ -14,22 +16,11 @@ class MarkdownRenderer implements Renderer
 
     public function render(string $file): string
     {
-
         $content = file_get_contents($file);
 
         $result = $this->parser->parse($content);
-//        dd($result);
+//        dd(Blade::getFacadeRoot());
 
-        $content = view('post', [
-            ...$result
-        ])->render();
-//        dd($content);
-
-        return $content;
-
-        return view($result['layout'], [
-            ...$result
-        ])->render();
-//        return $content;
+        return Blade::compileString($result);
     }
 }

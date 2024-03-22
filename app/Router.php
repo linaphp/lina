@@ -14,7 +14,6 @@ class Router implements \BangNokia\Pekyll\Contracts\Router
     public function __construct(Application $app, protected ContentFinder $contentFinder)
     {
         $this->app = $app;
-//        dd($this->app);
     }
 
     public function parse(Request $request): Response
