@@ -2,10 +2,10 @@
 
 namespace BangNokia\Pekyll;
 
-use BangNokia\Pekyll\Contracts\MarkdownParserInterface;
+use BangNokia\Pekyll\Contracts\MarkdownParser as MarkdownParserContract;
 use ParsedownToC;
 
-class MarkdownParser implements MarkdownParserInterface
+class MarkdownParser implements MarkdownParserContract
 {
     protected ParsedownToC $driver;
 

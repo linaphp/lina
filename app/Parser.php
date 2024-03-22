@@ -2,14 +2,14 @@
 
 namespace BangNokia\Pekyll;
 
-use BangNokia\Pekyll\Contracts\MarkdownParserInterface;
+use BangNokia\Pekyll\Contracts\MarkdownParser;
 use Symfony\Component\Yaml\Yaml;
 
 class Parser
 {
-    protected MarkdownParserInterface $markdownParser;
+    protected MarkdownParser $markdownParser;
 
-    public function __construct(MarkdownParserInterface $markdownParser)
+    public function __construct(MarkdownParser $markdownParser)
     {
         $this->markdownParser = $markdownParser;
     }

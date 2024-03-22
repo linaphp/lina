@@ -2,11 +2,12 @@
 
 namespace BangNokia\Pekyll\Providers;
 
-use BangNokia\Pekyll\Contracts\MarkdownParserInterface;
+use BangNokia\Pekyll\Contracts\MarkdownParser as MarkdownParserContract;
 use BangNokia\Pekyll\Contracts\Router;
 use BangNokia\Pekyll\MarkdownParser;
 use Illuminate\Console\Signals;
 use Illuminate\Support\ServiceProvider;
+use Symfony\Component\Console\SignalRegistry\SignalRegistry;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(MarkdownParserInterface::class, MarkdownParser::class);
+        $this->app->bind(MarkdownParserContract::class, MarkdownParser::class);
 
         $this->app->singleton(Router::class, function ($app) {
             return new \BangNokia\Pekyll\Router($app);
@@ -30,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        config(['view.paths' => [getcwd().'/resources/views']]);
-        config(['view.compiled' => getcwd().'/resources/cache']);
+        config(['view.paths' => [getcwd() . '/resources/views']]);
+        config(['view.compiled' => getcwd() . '/resources/cache']);
     }
 }

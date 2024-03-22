@@ -2,7 +2,7 @@
 
 namespace BangNokia\Pekyll\Contracts;
 
-interface MarkdownParserInterface
+interface MarkdownParser
 {
     public function parse(string $text): string;
 }
