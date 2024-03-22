@@ -1,8 +1,8 @@
 ---
 title: You blog
-layout: app
+layout: index
 ---
 
 # Index page
 
-This is your index page, you can customize it by editing `resources/views/app.blade.php` file.
+This is your index page, you can customize it by editing `resources/views/index.blade.php` file.

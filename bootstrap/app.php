@@ -32,9 +32,15 @@ $app->singleton(
 );
 
 $app->singleton(
+    Illuminate\Contracts\Http\Kernel::class,
+    \BangNokia\Pekyll\HttpKernel::class
+);
+
+$app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     Illuminate\Foundation\Exceptions\Handler::class
 );
+
 
 /*
 |--------------------------------------------------------------------------

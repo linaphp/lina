@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'version' => app('git.version'),
+    'version' => '0.5',
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
     */
 
     'providers' => [
-//        \Illuminate\View\ViewServiceProvider::class,
+        \Illuminate\View\ViewServiceProvider::class,
         \BangNokia\Pekyll\Providers\RouteServiceProvider::class,
         \BangNokia\Pekyll\Providers\AppServiceProvider::class,
     ],

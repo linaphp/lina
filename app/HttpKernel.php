@@ -2,15 +2,23 @@
 
 namespace BangNokia\Pekyll;
 
-use Illuminate\Foundation\Http\Kernel;
-use LaravelZero\Framework\Application;
-use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Contracts\Foundation\Application;
 
-class HttpKernel implements \Illuminate\Contracts\Http\Kernel
+//use Illuminate\Foundation\Http\Kernel;
+use BangNokia\Pekyll\Router;
+use Illuminate\Contracts\Http\Kernel;
+
+class HttpKernel implements Kernel
 {
-    protected $app;
+    protected $bootstrappers = [
+        \LaravelZero\Framework\Bootstrap\LoadConfiguration::class,
+        \Illuminate\Foundation\Bootstrap\HandleExceptions::class,
+        \LaravelZero\Framework\Bootstrap\RegisterFacades::class,
+        \LaravelZero\Framework\Bootstrap\RegisterProviders::class,
+        \Illuminate\Foundation\Bootstrap\BootProviders::class,
+    ];
 
-    public function __construct(Application $app, protected \BangNokia\Pekyll\Contracts\Router $router)
+    public function __construct(protected Application $app)
     {
         $this->app = $app;
     }
@@ -18,17 +26,10 @@ class HttpKernel implements \Illuminate\Contracts\Http\Kernel
     public function bootstrap()
     {
         if (!$this->app->hasBeenBootstrapped()) {
-            $this->app->bootstrapWith([
-                \Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables::class,
-                \Illuminate\Foundation\Bootstrap\LoadConfiguration::class,
-                \Illuminate\Foundation\Bootstrap\HandleExceptions::class,
-                \Illuminate\Foundation\Bootstrap\RegisterFacades::class,
-                \Illuminate\Foundation\Bootstrap\SetRequestForConsole::class,
-                \Illuminate\Foundation\Bootstrap\RegisterProviders::class,
-                \Illuminate\Foundation\Bootstrap\BootProviders::class,
-            ]);
+            $this->app->bootstrapWith($this->bootstrappers);
         }
     }
+
 
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
@@ -38,12 +39,13 @@ class HttpKernel implements \Illuminate\Contracts\Http\Kernel
     {
         $this->bootstrap();
 
-        return $this->router->parse($request);
+        $router = new Router(new ContentFinder(getcwd() . '/content/'));
+
+        return $router->parse($request);
     }
 
     public function terminate($request, $response)
     {
-        // TODO: Implement terminate() method.
     }
 
     public function getApplication()

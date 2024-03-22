@@ -12,6 +12,9 @@ class MarkdownRenderer implements Renderer
     public function __construct(protected string $rootDir)
     {
         $this->parser = new Parser(new MarkdownParser());
+
+        config(['view.paths' => [$this->rootDir . '/resources/views']]);
+        config(['view.compiled' => $this->rootDir . '/resources/cache']);
     }
 
     public function render(string $file): string
@@ -19,8 +22,10 @@ class MarkdownRenderer implements Renderer
         $content = file_get_contents($file);
 
         $result = $this->parser->parse($content);
-//        dd(Blade::getFacadeRoot());
 
-        return Blade::compileString($result);
+
+        return view($result['layout'], [
+            ...$result
+        ])->render();
     }
 }

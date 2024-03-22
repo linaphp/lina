@@ -9,11 +9,8 @@ use BangNokia\Pekyll\Contracts\Renderer;
 
 class Router implements \BangNokia\Pekyll\Contracts\Router
 {
-    protected $app;
-
-    public function __construct(Application $app, protected ContentFinder $contentFinder)
+    public function __construct(protected ContentFinder $contentFinder)
     {
-        $this->app = $app;
     }
 
     public function parse(Request $request): Response

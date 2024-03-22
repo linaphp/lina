@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $basePath = $this->app->basePath();
+//        dd($basePath);
         $this->app->bind(MarkdownParserInterface::class, MarkdownParser::class);
 
         Signals::resolveAvailabilityUsing(function () {
