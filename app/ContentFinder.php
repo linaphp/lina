@@ -70,8 +70,13 @@ class ContentFinder
         $finder = (new Finder())->in($this->workingDir . ltrim('/' . $directory));
 
         foreach ($finder as $file) {
+            if ($file->isDir()) {
+                continue;
+            }
             $posts[] = $this->get($file->getRealPath(), true);
+//            echo $file->getRealPath() . PHP_EOL;
         }
+//        dd('stop');
 
         return $posts;
     }

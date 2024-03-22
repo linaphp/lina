@@ -1,8 +1,15 @@
 <?php
 
+use BangNokia\Pekyll\ContentFinder;
+
 if (!function_exists('list_content')) {
-    function cf(): \BangNokia\Pekyll\ContentFinder
+    function cf(): ContentFinder
     {
-        return app(\BangNokia\Pekyll\ContentFinder::class);
+        return app(ContentFinder::class);
+    }
+
+    function content_path($path = ''): string
+    {
+        return getcwd() . '/content/' . $path;
     }
 }
