@@ -10,7 +10,7 @@ class ContentFinder
 {
     protected ?string $workingDir = null;
 
-    public function __construct(protected Finder $finder)
+    public function __construct()
     {
         $this->workingDir = $this->workingDir ?: getcwd() . '/content/';
     }
@@ -21,6 +21,8 @@ class ContentFinder
      */
     public function find(string $contentFile = ''): string
     {
+        $finder = new Finder();
+
         $path = $contentFile === '/' || $contentFile === '' ? 'index' : $contentFile;
 
         $baseName = basename($path);
@@ -30,9 +32,9 @@ class ContentFinder
 
         $contentDirectory = $this->workingDir . ($dirName === '.' ? '' : $dirName);
 
-        $this->finder->files()->in($contentDirectory)->name($pattern);
+        $finder->files()->in($contentDirectory)->name($pattern);
 
-        $fileCount = $this->finder->count();
+        $fileCount = $finder->count();
 
         if ($fileCount === 0) {
             throw new ContentNotFoundException($path);
@@ -41,14 +43,14 @@ class ContentFinder
         if ($fileCount > 1) {
             $fileNames = [];
 
-            foreach ($this->finder as $file) {
+            foreach ($finder as $file) {
                 $fileNames[] = $file->getRelativePath();
             }
 
             throw new ManyContentFound($fileNames);
         }
 
-        foreach ($this->finder as $file) {
+        foreach ($finder as $file) {
             return $file->getRealPath();
         }
     }

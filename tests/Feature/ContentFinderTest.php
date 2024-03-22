@@ -16,8 +16,11 @@ it('can find the file with date prefix', function () {
     chdirToSkeleton();
 
     $contentFinder = app(ContentFinder::class);
-    $contentFile = $contentFinder->find('/posts/hello');
 
+    $contentFile = $contentFinder->find('/posts/hello');
+    $this->assertEquals(getcwd().'/content/posts/2020-11-01-hello.md', $contentFile);
+
+    $contentFile = $contentFinder->find('/posts/2020-11-01-hello');
     $this->assertEquals(getcwd().'/content/posts/2020-11-01-hello.md', $contentFile);
 });
 
