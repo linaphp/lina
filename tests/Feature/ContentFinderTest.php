@@ -7,7 +7,7 @@ it('can find the index markdown file', function () {
     chdirToSkeleton();
 
     $contentFinder = app(ContentFinder::class);
-    $contentFile = $contentFinder->find('/');
+    $contentFile = $contentFinder->tryFind('/');
 
     $this->assertEquals(getcwd().'/content/index.md', $contentFile);
 });
@@ -17,10 +17,10 @@ it('can find the file with date prefix', function () {
 
     $contentFinder = app(ContentFinder::class);
 
-    $contentFile = $contentFinder->find('/posts/hello');
+    $contentFile = $contentFinder->tryFind('/posts/hello');
     $this->assertEquals(getcwd().'/content/posts/2020-11-01-hello.md', $contentFile);
 
-    $contentFile = $contentFinder->find('/posts/2020-11-01-hello');
+    $contentFile = $contentFinder->tryFind('/posts/2020-11-01-hello');
     $this->assertEquals(getcwd().'/content/posts/2020-11-01-hello.md', $contentFile);
 });
 
@@ -29,6 +29,6 @@ it('throw exception when file not found', function () {
 
     $contentFinder = app(ContentFinder::class);
 
-    $contentFinder->find('/not-found.md');
+    $contentFinder->tryFind('/not-found.md');
 })->throws(ContentNotFoundException::class);
 

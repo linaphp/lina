@@ -12,14 +12,16 @@ class ContentFinder
 
     public function __construct(string $workingDir = null)
     {
-        $this->workingDir = $workingDir ?: getcwd() . '/content/';
+        $this->workingDir = $workingDir ?: getcwd() . '/content';
     }
 
     /**
+     * Find the content file by path from url
+     *
      * @throws ContentNotFoundException
      * @throws ManyContentFound
      */
-    public function find(string $contentFile = ''): string
+    public function tryFind(string $contentFile = ''): string
     {
         $finder = new Finder();
 
@@ -35,6 +37,38 @@ class ContentFinder
         $finder->files()->in($contentDirectory)->name($pattern);
 
         return $this->processFinderResult($finder, $path);
+    }
+
+    public function get(string $filePath): Content
+    {
+        $content = file_get_contents($this->workingDir . $filePath);
+
+        $data = (new Parser(new MarkdownParser()))->parse($content);
+        $fileName = basename($filePath, '.md');
+
+        if (preg_match('/(\d{4}-\d{2}-\d{2}-)?(.*)/', $fileName, $matches)) {
+            $slug = $matches[2];
+            $createdAt = $matches[1] ?? null;
+        }
+
+        return new Content(
+            $slug ?? $fileName,
+            $data['content'],
+            $data['front_matter'],
+            $createdAt ?? null,
+        );
+    }
+
+    public function index(string $directory): array
+    {
+        $files = [];
+        $finder = (new Finder())->in($this->workingDir . ltrim('/' . $directory));
+
+        foreach ($finder as $file) {
+            $files[] = $file->getRelativePathname();
+        }
+
+        return $files;
     }
 
     /**
@@ -63,7 +97,7 @@ class ContentFinder
         }
 
         foreach ($finder as $file) {
-            return $file->getRealPath();
+            return $file->getRelativePath();
         }
     }
 }

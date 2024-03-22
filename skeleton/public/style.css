@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Jost', sans-serif;
+}
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+.text-center {
+    text-align: center;
+}

@@ -18,7 +18,10 @@ class Parser
     {
         ['yaml' => $yaml, 'markdown' => $markdown] = $this->classify($text);
 
-        return array_merge($this->parseFrontMatter($yaml), ['content' => $this->markdownParser->parse($markdown)]);
+        return [
+            'front_matter' => $this->parseFrontMatter($yaml),
+            'content'      => $this->markdownParser->parse($markdown)
+        ];
     }
 
     public function parseFrontMatter(string $text): array

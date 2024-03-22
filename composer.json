@@ -1,7 +1,13 @@
 {
     "name": "bangnokia/pekyll",
     "description": "static blog generator",
-    "keywords": ["pekyll", "laravel", "laravel zero", "console", "cli"],
+    "keywords": [
+        "pekyll",
+        "laravel",
+        "laravel zero",
+        "console",
+        "cli"
+    ],
     "homepage": "https://pekyll.test",
     "type": "library",
     "license": "MIT",
@@ -29,7 +35,10 @@
     "autoload": {
         "psr-4": {
             "BangNokia\\Pekyll\\": "app/"
-        }
+        },
+        "files": [
+            "bootstrap/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -46,5 +55,7 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "bin": ["pekyll"]
+    "bin": [
+        "pekyll"
+    ]
 }

@@ -19,12 +19,10 @@ class MarkdownRenderer implements Renderer
 
     public function render(string $file): string
     {
-        $content = file_get_contents($file);
+        $content = app(ContentFinder::class)->get($file);
 
-        $data = $this->parser->parse($content);
-
-        return view($data['layout'], [
-            'data' => $data
+        return view($content->layout, [
+            'data' => $content,
         ])->render();
     }
 }
