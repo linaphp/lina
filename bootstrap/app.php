@@ -11,13 +11,6 @@
 |
 */
 
-use BangNokia\Pekyll\ContentFinder;
-use BangNokia\Pekyll\Contracts\Renderer;
-use BangNokia\Pekyll\Contracts\Router;
-use BangNokia\Pekyll\MarkdownParser;
-use BangNokia\Pekyll\MarkdownParserInterface;
-use BangNokia\Pekyll\MarkdownRenderer;
-
 $app = new LaravelZero\Framework\Application(
     dirname(__DIR__)
 );
