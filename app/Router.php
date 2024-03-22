@@ -2,23 +2,24 @@
 
 namespace BangNokia\Pekyll;
 
-use BangNokia\Pekyll\Contracts\Renderer;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use BangNokia\Pekyll\Contracts\Renderer;
 
-class Router
+class Router implements \BangNokia\Pekyll\Contracts\Router
 {
     public function __construct(protected ContentFinder $contentFinder, protected Renderer $renderer)
     {
     }
 
-    public function handle(Request $request): Response
+    public function parse(Request $request): Response
     {
         $path = $request->getPathInfo();
 
         $path = $this->escape($path);
 
         $contentFilePath = $this->contentFinder->find($path);
+
 
         return new Response(
             $this->renderer->render($contentFilePath),

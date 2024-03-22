@@ -3,6 +3,7 @@
 namespace BangNokia\Pekyll\Providers;
 
 use BangNokia\Pekyll\Contracts\Renderer;
+use BangNokia\Pekyll\Contracts\Router;
 use BangNokia\Pekyll\HttpKernel;
 use BangNokia\Pekyll\MarkdownParser;
 use BangNokia\Pekyll\MarkdownParserInterface;
@@ -25,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->bind(Renderer::class, function () {
             return new MarkdownRenderer(getcwd() . '/content');
+        });
+
+        $this->app->bind(Router::class, function ($app) {
+            return new \BangNokia\Pekyll\Router($app, $app->make(Renderer::class));
         });
 
         Signals::resolveAvailabilityUsing(function () {

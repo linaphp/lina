@@ -13,7 +13,7 @@ if (file_exists(__DIR__.'/../../autoload.php')) {
  */
 $app = require_once __DIR__.'/bootstrap/app.php';
 
-/** @var \App\HttpKernel $kernel */
+/** @var \BangNokia\Pekyll\HttpKernel $kernel */
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(

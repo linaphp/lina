@@ -3,12 +3,16 @@
 namespace BangNokia\Pekyll;
 
 use Illuminate\Contracts\Http\Kernel;
+use LaravelZero\Framework\Application;
 use Symfony\Component\HttpFoundation\Response;
 
 class HttpKernel implements Kernel
 {
-    public function __construct(protected Router $router)
+    protected $app;
+
+    public function __construct(Application $app)
     {
+        $this->app = $app;
     }
 
     public function bootstrap()
@@ -22,7 +26,7 @@ class HttpKernel implements Kernel
      */
     public function handle($request)
     {
-        return $this->router->handle($request);
+        return $this->app->make(Router::class)->parse($request);
     }
 
     public function terminate($request, $response)
@@ -32,5 +36,6 @@ class HttpKernel implements Kernel
 
     public function getApplication()
     {
+        return $this->app;
     }
 }
