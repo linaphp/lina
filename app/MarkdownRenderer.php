@@ -21,11 +21,10 @@ class MarkdownRenderer implements Renderer
     {
         $content = file_get_contents($file);
 
-        $result = $this->parser->parse($content);
+        $data = $this->parser->parse($content);
 
-
-        return view($result['layout'], [
-            ...$result
+        return view($data['layout'], [
+            'data' => $data
         ])->render();
     }
 }

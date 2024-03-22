@@ -1,5 +1,5 @@
 ---
-title: You blog
+title: My blog
 layout: index
 ---
 
