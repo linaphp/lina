@@ -34,6 +34,18 @@ class ContentFinder
 
         $finder->files()->in($contentDirectory)->name($pattern);
 
+        return $this->processFinderResult($finder, $path);
+    }
+
+    /**
+     * @param Finder $finder
+     * @param string $path
+     * @return false|string|void
+     * @throws ContentNotFoundException
+     * @throws ManyContentFound
+     */
+    public function processFinderResult(Finder $finder, string $path)
+    {
         $fileCount = $finder->count();
 
         if ($fileCount === 0) {
