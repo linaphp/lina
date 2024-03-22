@@ -1,7 +1,9 @@
 <?php
 
+use BangNokia\Pekyll\Parser;
+
 beforeEach(function () {
-    $this->parser = app()->make(\BangNokia\Pekyll\Parser::class);
+    $this->parser = app()->make(Parser::class);
 });
 
 it('can parse meta and markdown text from raw file', function () {
@@ -34,8 +36,10 @@ it('can parse meta to array', function () {
     $meta = $this->parser->parseYaml(<<<EOF
 title: hello world
 layout: post
-
-tags[]: foo, bar, foo bar
+tags:
+  - foo
+  - bar
+  - foo bar
 blank:
 EOF
     );
@@ -44,7 +48,7 @@ EOF
         'title'  => 'hello world',
         'layout' => 'post',
         'tags'   => ['foo', 'bar', 'foo bar'],
-        'blank' => ''
+        'blank' => null
     ]);
 });
 

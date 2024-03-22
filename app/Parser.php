@@ -2,6 +2,8 @@
 
 namespace BangNokia\Pekyll;
 
+use Symfony\Component\Yaml\Yaml;
+
 class Parser
 {
     protected MarkdownParserInterface $markdownParser;
@@ -20,22 +22,7 @@ class Parser
 
     public function parseYaml(string $text): array
     {
-        $meta = [];
-
-        foreach (preg_split("/\\r\\r|\\r|\\n/", $text) as $line) {
-            if (blank($line)) {
-                continue;
-            }
-
-            [$key, $value] = $this->parseLine($line);
-
-            if (substr($key, -2) === '[]') {
-                $key = substr($key, 0, strlen($key) - 2);
-                $value = array_map('trim', explode(',', $value));
-            }
-
-            $meta[$key] = $value;
-        }
+        $meta = Yaml::parse($text);
 
         return $meta;
     }
