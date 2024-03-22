@@ -7,6 +7,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class HttpKernel implements Kernel
 {
+    protected Router $router;
+
+    public function __construct(Router $router)
+    {
+        $this->router = $router;
+    }
+
     public function bootstrap()
     {
         // TODO: Implement bootstrap() method.
@@ -18,14 +25,7 @@ class HttpKernel implements Kernel
      */
     public function handle($request)
     {
-        $path = $request->getPathInfo();
-
-        $response = new Response(
-            'hello world',
-            200
-        );
-
-        return $response;
+        return $this->router->handle($request);
     }
 
     public function terminate($request, $response)
@@ -35,6 +35,5 @@ class HttpKernel implements Kernel
 
     public function getApplication()
     {
-        // TODO: Implement getApplication() method.
     }
 }
