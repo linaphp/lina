@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Contracts\Http\Kernel;
+use Symfony\Component\HttpFoundation\Response;
 
 class HttpKernel implements Kernel
 {
@@ -17,7 +18,14 @@ class HttpKernel implements Kernel
      */
     public function handle($request)
     {
-        dd($request);
+        $path = $request->getPathInfo();
+
+        $response = new Response(
+            'hello world',
+            200
+        );
+
+        return $response;
     }
 
     public function terminate($request, $response)

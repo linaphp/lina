@@ -35,10 +35,20 @@ class Serve extends Command
 
     protected function startProcess()
     {
-        $process = new Process($this->serverCommand());
+        $process = new Process($this->serverCommand(), timeout: 0);
 
         $process->start(function ($type, $data) {
             $this->output->write($data);
+        });
+
+        // Stop the server when the user hits Ctrl+C
+        // to void the port in used error
+        $this->trap(fn () => [SIGTERM, SIGINT, SIGHUP, SIGUSR1, SIGUSR2, SIGQUIT], function ($signal) use ($process) {
+            if ($process->isRunning()) {
+                $process->stop(10, $signal);
+            }
+
+            exit;
         });
 
         return $process;

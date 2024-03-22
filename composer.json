@@ -18,7 +18,8 @@
         "illuminate/view": "^v10.0",
         "keinos/parsedown-toc": "^1.1",
         "laravel-zero/framework": "^v10.3",
-        "symfony/http-foundation": "^7.0"
+        "symfony/http-foundation": "^7.0",
+        "ext-pcntl": "*"
     },
     "require-dev": {
         "mockery/mockery": "^1.4.2",
