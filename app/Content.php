@@ -25,6 +25,10 @@ class Content
 
     public function url(): string
     {
+        if ($this->filePath === '/index.md') {
+            return '/';
+        }
+
         return dirname($this->filePath) . '/' . $this->slug;
     }
 
