@@ -2,8 +2,8 @@
 
 namespace BangNokia\Pekyll\Commands;
 
-use App\Parser;
-use App\Builder;
+use BangNokia\Pekyll\Parser;
+use BangNokia\Pekyll\Builder;
 use LaravelZero\Framework\Commands\Command;
 
 class Build extends Command

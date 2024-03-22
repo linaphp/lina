@@ -52,7 +52,7 @@ class ContentFinder
 
         if (preg_match('/(\d{4}-\d{2}-\d{2}-)?(.*)/', $fileName, $matches)) {
             $slug = $matches[2];
-            $createdAt = $matches[1] ?? null;
+            $createdAt = $matches[1] ? rtrim($matches[1] ,'-') : null;
         }
 
         return new Content(
