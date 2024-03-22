@@ -3,10 +3,8 @@
 namespace BangNokia\Pekyll\Commands;
 
 use BangNokia\Pekyll\Content;
-use BangNokia\Pekyll\ContentFinder;
 use BangNokia\Pekyll\MarkdownRenderer;
 use BangNokia\Pekyll\Parser;
-use BangNokia\Pekyll\Builder;
 use LaravelZero\Framework\Commands\Command;
 
 class Build extends Command
