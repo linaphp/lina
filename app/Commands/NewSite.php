@@ -5,7 +5,7 @@ namespace App\Commands;
 use Illuminate\Filesystem\Filesystem;
 use LaravelZero\Framework\Commands\Command;
 
-class CreateNewSite extends Command
+class NewSite extends Command
 {
     protected $signature = 'new {name}';
 

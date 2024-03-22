@@ -3,12 +3,8 @@
 namespace App\Commands;
 
 use LaravelZero\Framework\Commands\Command;
-use Symfony\Component\Finder\Finder;
 use Symfony\Component\Process\PhpExecutableFinder;
 use Symfony\Component\Process\Process;
-use Yosymfony\ResourceWatcher\Crc32ContentHash;
-use Yosymfony\ResourceWatcher\ResourceCacheMemory;
-use Yosymfony\ResourceWatcher\ResourceWatcher;
 
 class Serve extends Command
 {
