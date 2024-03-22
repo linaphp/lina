@@ -10,17 +10,21 @@ use Illuminate\Contracts\Http\Kernel;
 
 class HttpKernel implements Kernel
 {
-    protected $bootstrappers = [
+    protected array $bootstrappers = [
         \LaravelZero\Framework\Bootstrap\LoadConfiguration::class,
-        \Illuminate\Foundation\Bootstrap\HandleExceptions::class,
         \LaravelZero\Framework\Bootstrap\RegisterFacades::class,
         \LaravelZero\Framework\Bootstrap\RegisterProviders::class,
         \Illuminate\Foundation\Bootstrap\BootProviders::class,
     ];
 
-    public function __construct(protected Application $app)
+    protected Application $app;
+
+    protected Router $router;
+
+    public function __construct(Application $app, Router $router)
     {
         $this->app = $app;
+        $this->router = $router;
     }
 
     public function bootstrap()
@@ -39,9 +43,7 @@ class HttpKernel implements Kernel
     {
         $this->bootstrap();
 
-        $router = new Router(new ContentFinder(getcwd() . '/content/'));
-
-        return $router->parse($request);
+        return $this->router->parse($request);
     }
 
     public function terminate($request, $response)

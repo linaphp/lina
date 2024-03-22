@@ -22,7 +22,7 @@ class Router implements \BangNokia\Pekyll\Contracts\Router
         $contentFilePath = $this->contentFinder->find($path);
 
         return new Response(
-            (new MarkdownRenderer(getcwd()))->render($contentFilePath),
+            app(MarkdownRenderer::class)->render($contentFilePath),
             200,
             ['Content-Type' => 'text/html']
         );
