@@ -34,7 +34,6 @@ class HttpKernel implements Kernel
         }
     }
 
-
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @return \Symfony\Component\HttpFoundation\Response
