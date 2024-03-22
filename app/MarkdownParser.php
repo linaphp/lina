@@ -2,6 +2,7 @@
 
 namespace BangNokia\Pekyll;
 
+use BangNokia\Pekyll\Contracts\MarkdownParserInterface;
 use ParsedownToC;
 
 class MarkdownParser implements MarkdownParserInterface
