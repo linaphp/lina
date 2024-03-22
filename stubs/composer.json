@@ -1,0 +1,6 @@
+{
+    "type": "project",
+    "require": {
+        "bangnokia/pekyll": "dev-main"
+    }
+}
