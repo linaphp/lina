@@ -13,13 +13,11 @@ if (file_exists(__DIR__.'/../../autoload.php')) {
  */
 $app = require_once __DIR__.'/bootstrap/app.php';
 
-/** @var \Illuminate\Foundation\Http\Kernel $kernel */
-
-
+/** @var \App\HttpKernel $kernel */
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(
-    $request = Request::capture()
+    $request = \Symfony\Component\HttpFoundation\Request::createFromGlobals()
 )->send();
 
 $kernel->terminate($request, $response);

@@ -11,9 +11,13 @@ class HttpKernel implements Kernel
         // TODO: Implement bootstrap() method.
     }
 
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function handle($request)
     {
-        echo 'wtf';
+        dd($request);
     }
 
     public function terminate($request, $response)
