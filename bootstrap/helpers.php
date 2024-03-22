@@ -1,12 +1,8 @@
 <?php
 
-namespace BangNokia\Pekyll;
-
 if (!function_exists('list_content')) {
-    function list_content(string $directory): array
+    function cf(): \BangNokia\Pekyll\ContentFinder
     {
-        $contentFinder = new ContentFinder();
-
-        return $contentFinder->index($directory);
+        return app(\BangNokia\Pekyll\ContentFinder::class);
     }
 }

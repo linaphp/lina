@@ -14,17 +14,18 @@ class Content
 
     public string $filePath;
 
-    public function __construct(string $slug, string $content, array $meta = [], string $createdAt = null, $layout = null)
+    public function __construct(string $slug, string $content, array $meta = [], string $createdAt = null, $relativePath = null)
     {
         $this->slug = $slug;
         $this->content = $content;
         $this->createdAt = $createdAt;
         $this->meta = $meta;
+        $this->filePath = $relativePath;
     }
 
     public function url(): string
     {
-        return str_replace(getcwd(), '', $this->filePath) . $this->slug;
+        return dirname($this->filePath) . '/' . $this->slug;
     }
 
     public function __get($name)

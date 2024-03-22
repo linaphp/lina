@@ -43,7 +43,9 @@ class ContentFinder
 
     public function get(string $filePath, $absolute = false): Content
     {
-        $content = $absolute ? file_get_contents($filePath) : file_get_contents($this->workingDir . $filePath);
+        $absolutePath = $absolute ? $filePath : $this->workingDir . $filePath;
+
+        $content = file_get_contents($absolutePath);
 
         $data = (new Parser(new MarkdownParser()))->parse($content);
         $fileName = basename($filePath, '.md');
@@ -54,23 +56,24 @@ class ContentFinder
         }
 
         return new Content(
-            $slug ?? $fileName,
-            $data['content'],
-            $data['front_matter'],
-            $createdAt ?? null,
+            slug: $slug ?? $fileName,
+            content: $data['content'],
+            meta: $data['front_matter'],
+            createdAt: $createdAt ?? null,
+            relativePath: $absolute ? str_replace($this->workingDir, '', $filePath) : $filePath
         );
     }
 
     public function index(string $directory): array
     {
-        $files = [];
+        $posts = [];
         $finder = (new Finder())->in($this->workingDir . ltrim('/' . $directory));
 
         foreach ($finder as $file) {
-            $files[] = $file->getRelativePathname();
+            $posts[] = $this->get($file->getRealPath(), true);
         }
 
-        return $files;
+        return $posts;
     }
 
     /**

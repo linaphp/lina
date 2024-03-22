@@ -10,11 +10,13 @@
     <div>
         <h2>Latest posts</h2>
 
-        @php
-//            $posts =
-        @endphp
 
         <ul>
+            @foreach(cf()->index('posts') as $post)
+                <li>
+                    <a href="{{ $post->url() }}">{{ $post->title }}</a>
+                </li>
+            @endforeach
             <li></li>
         </ul>
     </div>
