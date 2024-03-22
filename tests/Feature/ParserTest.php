@@ -61,6 +61,6 @@ title: foo
 EOF
 );
 
-    $this->assertEquals('foo', $result['title']);
+    $this->assertEquals('foo', $result['front_matter']['title']);
     $this->assertEquals('<h1 id="hello" name="hello">hello</h1>', $result['content']);
 });
