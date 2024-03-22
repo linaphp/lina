@@ -2,5 +2,15 @@
     "type": "project",
     "require": {
         "bangnokia/pekyll": "dev-main"
-    }
+    },
+    "scripts": {
+        "serve": "pekyll serve",
+        "build": "pekyll build"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/Users/daudau/Code/bangnokia/pekyll"
+        }
+    ]
 }

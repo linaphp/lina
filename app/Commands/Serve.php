@@ -20,8 +20,6 @@ class Serve extends Command
 
         $process = $this->startProcess();
 
-        $this->callSilent('link');
-
         while ($process->isRunning()) {
             usleep(0.5 * 1000000);
         }
@@ -65,6 +63,6 @@ class Serve extends Command
 
     protected function port()
     {
-        return 1337 + $this->portOffset;
+        return 6969 + $this->portOffset;
     }
 }

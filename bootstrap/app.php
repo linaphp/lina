@@ -36,6 +36,11 @@ $app->singleton(
     Illuminate\Foundation\Exceptions\Handler::class
 );
 
+$app->singleton(
+    Illuminate\Contracts\Http\Kernel::class,
+    \App\HttpKernel::class,
+);
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application

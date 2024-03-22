@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\HttpKernel;
 use App\MarkdownParser;
 use App\MarkdownParserInterface;
+use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
