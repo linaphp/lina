@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ implode(' | ', [$data['title'] ?? '', 'My awesome blog']) }}</title>
+    <title>{{ implode(' | ', [$data->title ?? '', 'My awesome blog']) }}</title>
 
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=jost:300,300i,400,400i,500,500i,600,700&display=swap"
@@ -11,9 +11,16 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+<div class="container">
+    <header>
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+    </header>
 
-<div class="bg-white font-sans container">
-    @yield('content')
+    <main>
+        @yield('content')
+    </main>
 </div>
 </body>
 </html>

@@ -6,15 +6,13 @@ class Content
 {
     public string $slug;
 
-    public ?string $title;
-
     public string $content;
 
     public string $createdAt;
 
     public array $meta;
 
-    public ?string $layout = null;
+    public string $filePath;
 
     public function __construct(string $slug, string $content, array $meta = [], string $createdAt = null, $layout = null)
     {
@@ -22,8 +20,15 @@ class Content
         $this->content = $content;
         $this->createdAt = $createdAt;
         $this->meta = $meta;
-        $this->layout = $layout;
+    }
 
-        $this->title = $this->meta['title'] ?? null;
+    public function url(): string
+    {
+        return str_replace(getcwd(), '', $this->filePath) . $this->slug;
+    }
+
+    public function __get($name)
+    {
+        return $this->meta[$name] ?? null;
     }
 }

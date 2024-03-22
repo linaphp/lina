@@ -17,9 +17,9 @@ class MarkdownRenderer implements Renderer
         config(['view.compiled' => $this->rootDir . '/resources/cache']);
     }
 
-    public function render(string $file): string
+    public function render(string $realPath): string
     {
-        $content = app(ContentFinder::class)->get($file);
+        $content = app(ContentFinder::class)->get($realPath, true);
 
         return view($content->layout, [
             'data' => $content,

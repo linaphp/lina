@@ -16,6 +16,6 @@ class MarkdownParser implements MarkdownParserContract
 
     public function parse(string $text): string
     {
-        return $this->driver->text($text);
+        return trim($this->driver->text($text));
     }
 }

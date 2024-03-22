@@ -36,12 +36,14 @@ class ContentFinder
 
         $finder->files()->in($contentDirectory)->name($pattern);
 
-        return $this->processFinderResult($finder, $path);
+        $result = $this->processFinderResult($finder, $path);
+
+        return $result;
     }
 
-    public function get(string $filePath): Content
+    public function get(string $filePath, $absolute = false): Content
     {
-        $content = file_get_contents($this->workingDir . $filePath);
+        $content = $absolute ? file_get_contents($filePath) : file_get_contents($this->workingDir . $filePath);
 
         $data = (new Parser(new MarkdownParser()))->parse($content);
         $fileName = basename($filePath, '.md');
@@ -97,7 +99,7 @@ class ContentFinder
         }
 
         foreach ($finder as $file) {
-            return $file->getRelativePath();
+            return $file->getRealPath();
         }
     }
 }
