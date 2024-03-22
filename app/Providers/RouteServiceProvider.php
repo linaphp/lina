@@ -14,12 +14,14 @@ class RouteServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->bind(Renderer::class, function ($app) {
-            return new MarkdownRenderer(getcwd() . '/content', new Parser(new MarkdownParser()));
-        });
-
         $this->app->singleton(Router::class, function ($app) {
             return new \BangNokia\Pekyll\Router($app, $app->make(ContentFinder::class), $app->make(Renderer::class));
         });
+    }
+
+    public function boot()
+    {
+        config(['view.paths' => [getcwd().'/resources/views']]);
+        config(['view.compiled' => getcwd().'/resources/cache']);
     }
 }

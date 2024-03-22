@@ -10,8 +10,6 @@ class HttpKernel implements Kernel
 {
     protected $app;
 
-//    protected $router;
-
     public function __construct(Application $app, protected Router $router)
     {
         $this->app = $app;
@@ -19,7 +17,17 @@ class HttpKernel implements Kernel
 
     public function bootstrap()
     {
-        // TODO: Implement bootstrap() method.
+//        if (! $this->app->hasBeenBootstrapped()) {
+//            $this->app->bootstrapWith([
+////                \Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables::class,
+//                \Illuminate\Foundation\Bootstrap\LoadConfiguration::class,
+////                \Illuminate\Foundation\Bootstrap\HandleExceptions::class,
+////                \Illuminate\Foundation\Bootstrap\RegisterFacades::class,
+//                \Illuminate\Foundation\Bootstrap\SetRequestForConsole::class,
+//                \Illuminate\Foundation\Bootstrap\RegisterProviders::class,
+//                \Illuminate\Foundation\Bootstrap\BootProviders::class,
+//            ]);
+//        }
     }
 
     /**
@@ -28,6 +36,8 @@ class HttpKernel implements Kernel
      */
     public function handle($request)
     {
+//        $this->bootstrap();
+
         return $this->router->parse($request);
     }
 

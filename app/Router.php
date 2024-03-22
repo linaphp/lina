@@ -11,9 +11,10 @@ class Router implements \BangNokia\Pekyll\Contracts\Router
 {
     protected $app;
 
-    public function __construct(Application $app, protected ContentFinder $contentFinder, protected Renderer $renderer)
+    public function __construct(Application $app, protected ContentFinder $contentFinder)
     {
         $this->app = $app;
+//        dd($this->app);
     }
 
     public function parse(Request $request): Response
@@ -24,9 +25,8 @@ class Router implements \BangNokia\Pekyll\Contracts\Router
 
         $contentFilePath = $this->contentFinder->find($path);
 
-
         return new Response(
-            $this->renderer->render($contentFilePath),
+            (new MarkdownRenderer(getcwd()))->render($contentFilePath),
             200,
             ['Content-Type' => 'text/html']
         );

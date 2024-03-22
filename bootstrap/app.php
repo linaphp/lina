@@ -15,8 +15,6 @@ $app = new LaravelZero\Framework\Application(
     dirname(__DIR__)
 );
 
-$app->register(\BangNokia\Pekyll\Providers\RouteServiceProvider::class);
-
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces
@@ -36,13 +34,6 @@ $app->singleton(
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     Illuminate\Foundation\Exceptions\Handler::class
-);
-
-
-
-$app->singleton(
-    Illuminate\Contracts\Http\Kernel::class,
-    BangNokia\Pekyll\HttpKernel::class,
 );
 
 /*
