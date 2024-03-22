@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace BangNokia\Pekyll;
 
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Support\Collection;

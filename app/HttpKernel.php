@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace BangNokia\Pekyll;
 
 use Illuminate\Contracts\Http\Kernel;
 use Symfony\Component\HttpFoundation\Response;

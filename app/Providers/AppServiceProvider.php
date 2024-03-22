@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Providers;
+namespace BangNokia\Pekyll\Providers;
 
-use App\HttpKernel;
-use App\MarkdownParser;
-use App\MarkdownParserInterface;
+use BangNokia\Pekyll\HttpKernel;
+use BangNokia\Pekyll\MarkdownParser;
+use BangNokia\Pekyll\MarkdownParserInterface;
 use Illuminate\Console\Signals;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;

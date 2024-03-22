@@ -1,7 +1,7 @@
 <?php
 
 beforeEach(function () {
-    $this->parser = app()->make(\App\Parser::class);
+    $this->parser = app()->make(\BangNokia\Pekyll\Parser::class);
 });
 
 it('can parse meta and markdown text from raw file', function () {

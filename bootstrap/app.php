@@ -38,7 +38,7 @@ $app->singleton(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    \App\HttpKernel::class,
+    BangNokia\Pekyll\HttpKernel::class,
 );
 
 /*

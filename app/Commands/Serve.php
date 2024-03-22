@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Commands;
+namespace BangNokia\Pekyll\Commands;
 
 use LaravelZero\Framework\Commands\Command;
 use Symfony\Component\Process\PhpExecutableFinder;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace BangNokia\Pekyll;
 
 interface MarkdownParserInterface
 {

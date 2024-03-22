@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace BangNokia\Pekyll;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

@@ -54,7 +54,7 @@ return [
     */
 
     'providers' => [
-        App\Providers\AppServiceProvider::class,
+        BangNokia\Pekyll\Providers\AppServiceProvider::class,
         \Illuminate\View\ViewServiceProvider::class,
     ],
 ];

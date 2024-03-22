@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Commands;
+namespace BangNokia\Pekyll\Commands;
 
 use App\Parser;
 use App\Builder;
