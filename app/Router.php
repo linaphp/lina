@@ -2,14 +2,18 @@
 
 namespace BangNokia\Pekyll;
 
+use LaravelZero\Framework\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use BangNokia\Pekyll\Contracts\Renderer;
 
 class Router implements \BangNokia\Pekyll\Contracts\Router
 {
-    public function __construct(protected ContentFinder $contentFinder, protected Renderer $renderer)
+    protected $app;
+
+    public function __construct(Application $app, protected ContentFinder $contentFinder, protected Renderer $renderer)
     {
+        $this->app = $app;
     }
 
     public function parse(Request $request): Response

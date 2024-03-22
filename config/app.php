@@ -55,6 +55,7 @@ return [
 
     'providers' => [
         BangNokia\Pekyll\Providers\AppServiceProvider::class,
+        \BangNokia\Pekyll\Providers\RouteServiceProvider::class,
         \Illuminate\View\ViewServiceProvider::class,
     ],
 ];

@@ -11,13 +11,18 @@
 |
 */
 
+use BangNokia\Pekyll\ContentFinder;
 use BangNokia\Pekyll\Contracts\Renderer;
 use BangNokia\Pekyll\Contracts\Router;
+use BangNokia\Pekyll\MarkdownParser;
+use BangNokia\Pekyll\MarkdownParserInterface;
 use BangNokia\Pekyll\MarkdownRenderer;
 
 $app = new LaravelZero\Framework\Application(
     dirname(__DIR__)
 );
+
+$app->register(\BangNokia\Pekyll\Providers\RouteServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +44,8 @@ $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     Illuminate\Foundation\Exceptions\Handler::class
 );
+
+
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,

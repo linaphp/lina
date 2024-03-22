@@ -10,7 +10,9 @@ class HttpKernel implements Kernel
 {
     protected $app;
 
-    public function __construct(Application $app)
+//    protected $router;
+
+    public function __construct(Application $app, protected Router $router)
     {
         $this->app = $app;
     }
@@ -26,7 +28,7 @@ class HttpKernel implements Kernel
      */
     public function handle($request)
     {
-        return $this->app->make(Router::class)->parse($request);
+        return $this->router->parse($request);
     }
 
     public function terminate($request, $response)
