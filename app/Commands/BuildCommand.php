@@ -41,8 +41,6 @@ class BuildCommand extends Command
     {
         echo 'Building ' . $item->path . PHP_EOL;
 
-//        file_get_contents('https://ping2.me/@daudau/debug?message=building___' . $item->slug);
-
         $directory = getcwd() . '/public/' . ($item->url() === '/' ? 'index.html' : ($item->url() . '/index.html'));
 
         if (!is_dir(dirname($directory))) {
