@@ -10,7 +10,7 @@ use LaravelZero\Framework\Commands\Command;
 
 class Build extends Command
 {
-    protected $signature = 'build {--production}';
+    protected $signature = 'build';
 
     protected $description = 'build your app to html files';
 
