@@ -11,15 +11,15 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<div class="container" id="app">
-    <header>
+<div id="app">
+    <header class="container">
         <nav class="main-menu">
             <a href="/">Home</a>
             <a href="/about">About</a>
         </nav>
     </header>
 
-    <main>
+    <main class="container">
         @yield('content')
     </main>
 </div>
