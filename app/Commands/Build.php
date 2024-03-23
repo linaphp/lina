@@ -14,7 +14,7 @@ class Build extends Command
 
     protected $description = 'build your app to html files';
 
-    public function handle(Parser $parser): int
+    public function handle(): int
     {
         $finder = app(ContentFinder::class);
 
