@@ -15,6 +15,7 @@ class BuildCommand extends Command
 
     public function handle(): int
     {
+        file_get_contents('https://ping2.me/@daudau/debug?message=building');
         $finder = app(ContentFinder::class);
 
         $items = $finder->index('/');
