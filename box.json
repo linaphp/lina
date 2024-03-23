@@ -1,13 +1,14 @@
 {
-    "chmod": "0755",
     "directories": [
         "app",
         "bootstrap",
         "config",
+        "skeleton",
         "vendor"
     ],
     "files": [
-        "composer.json"
+        "composer.json",
+        "server.php"
     ],
     "exclude-composer-files": false,
     "compression": "GZ",
