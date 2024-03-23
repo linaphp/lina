@@ -4,8 +4,6 @@ namespace BangNokia\Lina;
 
 use Illuminate\Contracts\Foundation\Application;
 
-//use Illuminate\Foundation\Http\Kernel;
-use BangNokia\Lina\Router;
 use Illuminate\Contracts\Http\Kernel;
 
 class HttpKernel implements Kernel
