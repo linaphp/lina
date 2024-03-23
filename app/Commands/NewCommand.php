@@ -5,7 +5,7 @@ namespace BangNokia\Lina\Commands;
 use Illuminate\Filesystem\Filesystem;
 use LaravelZero\Framework\Commands\Command;
 
-class NewSite extends Command
+class NewCommand extends Command
 {
     protected $signature = 'new {name}';
 

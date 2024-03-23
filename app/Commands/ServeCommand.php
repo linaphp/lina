@@ -6,7 +6,7 @@ use LaravelZero\Framework\Commands\Command;
 use Symfony\Component\Process\PhpExecutableFinder;
 use Symfony\Component\Process\Process;
 
-class Serve extends Command
+class ServeCommand extends Command
 {
     protected $signature = 'serve';
 

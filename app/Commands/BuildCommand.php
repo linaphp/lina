@@ -5,10 +5,9 @@ namespace BangNokia\Lina\Commands;
 use BangNokia\Lina\Content;
 use BangNokia\Lina\ContentFinder;
 use BangNokia\Lina\MarkdownRenderer;
-use BangNokia\Lina\Parser;
 use LaravelZero\Framework\Commands\Command;
 
-class Build extends Command
+class BuildCommand extends Command
 {
     protected $signature = 'build';
 
