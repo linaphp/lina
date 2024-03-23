@@ -2,11 +2,9 @@
 
 namespace BangNokia\Lina;
 
-use LaravelZero\Framework\Application;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use BangNokia\Lina\Contracts\Renderer;
 
 class Router implements \BangNokia\Lina\Contracts\Router
 {
