@@ -1,15 +1,19 @@
 @extends('app')
 
 @section('content')
-    <h1 class="text-center">Welcome to my blog</h1>
+    <h1 class="text-center">{{ $data->title }}</h1>
     <p class="text-center">This is a static blog build with PHP.</p>
 
+    {!! $data->content !!}
+
+    <hr>
     <div>
         <h2>Latest posts</h2>
-        <ul>
-            @foreach(cf()->index('posts') as $post)
+        <ul style="list-style: none">
+            @foreach(collect(cf()->index('posts'))->reverse() as $post)
                 <li>
-                    <a href="{{ $post->url() }}">{{ $post->title }}</a>
+                    <span>{{ $post->createdAt }}</span>
+                    <a href="{{ $post->url() }}" class="block" style="padding: 0.25rem 0;">{{ $post->title }} {{ $post->createdAt }}</a>
                 </li>
             @endforeach
         </ul>

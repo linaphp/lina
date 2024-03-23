@@ -1,47 +1,79 @@
 html {
     font-size: 16px; /* 1rem = 20px */
 }
+
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Jost', sans-serif;
+    font-family: 'Roboto Mono', monospace;
 }
+
 h1 {
     font-size: 2.5rem;
 }
+
 a {
     text-decoration: none;
     color: teal;
 }
+
 a:hover {
     text-decoration: underline;
 }
+
+pre {
+    code {
+        display: block;
+        padding: 1rem;
+        background-color: #f4f4f4;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        font-size: 1rem;
+        font-family: 'Fira Code', monospace;
+    }
+}
+
 #app {
     padding: 1rem 0;
 }
+
 .container {
     max-width: 696px;
     margin: 0 auto;
     padding: 0 1rem;
 }
+
 .main-menu {
     display: flex;
     gap: 1rem;
     font-weight: 500;
 }
+
 .text-center {
     text-align: center;
 }
+
 .flex {
     display: flex;
 }
+
 .flex-center {
     justify-content: center;
     align-items: center;
 }
+
 .flex-column {
     flex-direction: column;
 }
+
+.block {
+    display: block;
+}
+
+p {
+    line-height: 1.75rem;
+}
+
 
 /* Highlight */
 .hl-keyword {

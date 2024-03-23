@@ -17,12 +17,12 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 7.4
+          php-version: 8.3
           extensions: curl, mbstring, zip, pcntl, pdo, iconv
           coverage: none
 
-      - name: Install Pekyll
-        run: composer global require bangnokia/pekyll
+      - name: Install Line
+        run: composer global require bangnokia/lina
 
       - name: Build
         run: pekyll build

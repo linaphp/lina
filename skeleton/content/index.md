@@ -1,6 +1,6 @@
 ---
 title: Welcome to Lina
-layout: post
+layout: home
 ---
 
 **Lina** is an opinionated flat-file CMS for who want a simple and fast blog. The template using Blade template engine, so you can use all Blade features.
@@ -15,4 +15,8 @@ foreach (cf()->index('post') as $post) {
 
 ```html
     <h1>Hello world</h1>
+```
+
+```
+normal no html <h1>welcome to vietnam</h1>
 ```
