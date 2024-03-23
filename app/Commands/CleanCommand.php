@@ -16,10 +16,13 @@ class CleanCommand extends Command
     {
         $finder = new Finder();
 
-        $finder->files()->in(getcwd() . '/public')->name('*.html');
+        $finder->in(getcwd() . '/public')->ignoreVCS(true);
 
-        foreach ($finder as $file) {
-            unlink($file->getRealPath());
+        foreach ($finder as $item) {
+            if ($item->isFile()) {
+                unlink($item->getRealPath());
+                unset($item);
+            }
         }
 
         $this->info('Cleaned the public directory');
