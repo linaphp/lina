@@ -16,6 +16,8 @@ class ServeCommand extends Command
 
     public function handle()
     {
+        $this->call('clean');
+
         $this->line("<info>Starting development server:</info> http://{$this->host()}:{$this->port()}");
 
         $process = $this->startProcess();
