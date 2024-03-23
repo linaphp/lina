@@ -39,6 +39,8 @@ class Build extends Command
 
     protected function buildItem(Content $item, MarkdownRenderer $renderer): void
     {
+        $this->info('Building ' . $item->path . '...');
+
         $directory = getcwd() . '/public/' . ($item->url() === '/' ? 'index.html' : ($item->url() . '/index.html'));
 
         if (!is_dir(dirname($directory))) {
