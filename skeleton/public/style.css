@@ -33,6 +33,11 @@ pre {
     }
 }
 
+
+p {
+    line-height: 1.75rem;
+}
+
 #app {
     padding: 1rem 0;
 }
@@ -69,9 +74,8 @@ pre {
 .block {
     display: block;
 }
-
-p {
-    line-height: 1.75rem;
+.text-sm {
+    font-size: 0.875rem;
 }
 
 
