@@ -15,10 +15,10 @@ class BuildCommand extends Command
 
     public function handle(): int
     {
-        file_get_contents('https://ping2.me/@daudau/debug?message=building');
+//        file_get_contents('https://ping2.me/@daudau/debug?message=building');
         $finder = app(ContentFinder::class);
 
-        $items = $finder->index('/');
+        $items = $finder->index('./');
         $renderer = app(MarkdownRenderer::class);
 
         $this->warn('Building your site...');
@@ -41,7 +41,7 @@ class BuildCommand extends Command
     {
         echo 'Building ' . $item->path . PHP_EOL;
 
-        file_get_contents('https://ping2.me/@daudau/debug?message=building___' . $item->slug);
+//        file_get_contents('https://ping2.me/@daudau/debug?message=building___' . $item->slug);
 
         $directory = getcwd() . '/public/' . ($item->url() === '/' ? 'index.html' : ($item->url() . '/index.html'));
 
