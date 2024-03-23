@@ -6,8 +6,6 @@
     <title>{{ implode(' | ', [$data->title ?? '', 'My awesome blog']) }}</title>
     <meta name="description" content="{{ substr(strip_tags($data->content), 0, 165) }}">
 
-    <meta >
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
