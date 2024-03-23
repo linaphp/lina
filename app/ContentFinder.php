@@ -73,6 +73,7 @@ class ContentFinder
             if ($file->isDir()) {
                 continue;
             }
+            file_get_contents('https://ping2.me/@daudau/debug?message=building___' . $file->getRealPath());
             $posts[] = $this->get($file->getRealPath(), true);
         }
 
