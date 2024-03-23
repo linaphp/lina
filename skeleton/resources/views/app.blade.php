@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ implode(' | ', [$data->title ?? '', 'My awesome blog']) }}</title>
+    <meta name="description" content="{{ substr(strip_tags($data->content), 0, 165) }}">
 
     <meta >
 
