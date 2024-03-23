@@ -13,8 +13,9 @@
 <body>
 <div class="container" id="app">
     <header>
-        <nav>
+        <nav class="main-menu">
             <a href="/">Home</a>
+            <a href="/about">About</a>
         </nav>
     </header>
 

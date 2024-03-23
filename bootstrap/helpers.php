@@ -1,6 +1,6 @@
 <?php
 
-use BangNokia\Pekyll\ContentFinder;
+use BangNokia\Lina\ContentFinder;
 
 if (!function_exists('list_content')) {
     function cf(): ContentFinder
