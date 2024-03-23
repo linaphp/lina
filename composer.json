@@ -19,7 +19,6 @@
     ],
     "require": {
         "php": "^8.3",
-        "ext-pcntl": "*",
         "erusev/parsedown": "^v1.7.2",
         "erusev/parsedown-extra": "^0.8.1",
         "illuminate/view": "^v10.0",
