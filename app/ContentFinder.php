@@ -52,15 +52,15 @@ class ContentFinder
 
         if (preg_match('/(\d{4}-\d{2}-\d{2}-)?(.*)/', $fileName, $matches)) {
             $slug = $matches[2];
-            $createdAt = $matches[1] ? rtrim($matches[1] ,'-') : null;
+            $createdAt = $matches[1] ? rtrim($matches[1], '-') : null;
         }
 
         return new Content(
+            path: $absolute ? str_replace($this->workingDir, '', $filePath) : $filePath,
             slug: $slug ?? $fileName,
             content: $data['content'],
             meta: $data['front_matter'],
             createdAt: $createdAt ?? null,
-            relativePath: $absolute ? str_replace($this->workingDir, '', $filePath) : $filePath
         );
     }
 
@@ -74,21 +74,16 @@ class ContentFinder
                 continue;
             }
             $posts[] = $this->get($file->getRealPath(), true);
-//            echo $file->getRealPath() . PHP_EOL;
         }
-//        dd('stop');
 
         return $posts;
     }
 
     /**
-     * @param Finder $finder
-     * @param string $path
-     * @return false|string|void
      * @throws ContentNotFoundException
      * @throws ManyContentFound
      */
-    public function processFinderResult(Finder $finder, string $path)
+    public function processFinderResult(Finder $finder, string $path): string
     {
         $fileCount = $finder->count();
 

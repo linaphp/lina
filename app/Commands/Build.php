@@ -45,7 +45,7 @@ class Build extends Command
             mkdir(dirname($directory), 0755, true);
         }
 
-        file_put_contents($directory, $renderer->render(content_path($item->filePath)));
+        file_put_contents($directory, $renderer->render(content_path($item->path)));
 
 //        $this->getOutput()->writeln('Built html for: ' . $item->filePath . '\r');
     }
