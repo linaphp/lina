@@ -38,7 +38,7 @@ class BuildCommand extends Command
 
     protected function buildItem(Content $item, MarkdownRenderer $renderer): void
     {
-        $this->info('Building ' . $item->path . '...');
+        echo 'Building ' . $item->path . PHP_EOL;
 
         $directory = getcwd() . '/public/' . ($item->url() === '/' ? 'index.html' : ($item->url() . '/index.html'));
 

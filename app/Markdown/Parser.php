@@ -11,6 +11,7 @@ class Parser extends \ParsedownToC
     public function __construct()
     {
         parent::__construct();
+
         $this->highlighter = new Highlighter();
     }
 
