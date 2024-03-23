@@ -1,6 +1,6 @@
 <?php
 
-use BangNokia\Pekyll\Parser;
+use BangNokia\Lina\Parser;
 
 beforeEach(function () {
     $this->parser = app()->make(Parser::class);

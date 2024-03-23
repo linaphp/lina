@@ -1,7 +1,7 @@
 <?php
 
-use BangNokia\Pekyll\ContentFinder;
-use BangNokia\Pekyll\Exceptions\ContentNotFoundException;
+use BangNokia\Lina\ContentFinder;
+use BangNokia\Lina\Exceptions\ContentNotFoundException;
 
 it('can find the index markdown file', function () {
     chdirToSkeleton();

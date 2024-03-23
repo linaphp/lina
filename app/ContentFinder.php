@@ -1,9 +1,9 @@
 <?php
 
-namespace BangNokia\Pekyll;
+namespace BangNokia\Lina;
 
-use BangNokia\Pekyll\Exceptions\ContentNotFoundException;
-use BangNokia\Pekyll\Exceptions\ManyContentFound;
+use BangNokia\Lina\Exceptions\ContentNotFoundException;
+use BangNokia\Lina\Exceptions\ManyContentFound;
 use Symfony\Component\Finder\Finder;
 
 class ContentFinder

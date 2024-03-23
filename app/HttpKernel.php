@@ -1,11 +1,11 @@
 <?php
 
-namespace BangNokia\Pekyll;
+namespace BangNokia\Lina;
 
 use Illuminate\Contracts\Foundation\Application;
 
 //use Illuminate\Foundation\Http\Kernel;
-use BangNokia\Pekyll\Router;
+use BangNokia\Lina\Router;
 use Illuminate\Contracts\Http\Kernel;
 
 class HttpKernel implements Kernel

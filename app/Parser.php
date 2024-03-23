@@ -1,8 +1,8 @@
 <?php
 
-namespace BangNokia\Pekyll;
+namespace BangNokia\Lina;
 
-use BangNokia\Pekyll\Contracts\MarkdownParser;
+use BangNokia\Lina\Contracts\MarkdownParser;
 use Symfony\Component\Yaml\Yaml;
 
 class Parser

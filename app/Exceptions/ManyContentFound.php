@@ -1,6 +1,6 @@
 <?php
 
-namespace BangNokia\Pekyll\Exceptions;
+namespace BangNokia\Lina\Exceptions;
 
 class ManyContentFound extends \Exception
 {

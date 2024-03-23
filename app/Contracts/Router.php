@@ -1,6 +1,6 @@
 <?php
 
-namespace BangNokia\Pekyll\Contracts;
+namespace BangNokia\Lina\Contracts;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

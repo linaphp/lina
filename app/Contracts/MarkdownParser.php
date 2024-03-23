@@ -1,6 +1,6 @@
 <?php
 
-namespace BangNokia\Pekyll\Contracts;
+namespace BangNokia\Lina\Contracts;
 
 interface MarkdownParser
 {

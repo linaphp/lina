@@ -1,6 +1,6 @@
 <?php
 
-namespace BangNokia\Pekyll;
+namespace BangNokia\Lina;
 
 class Content
 {

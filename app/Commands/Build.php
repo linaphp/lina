@@ -1,11 +1,11 @@
 <?php
 
-namespace BangNokia\Pekyll\Commands;
+namespace BangNokia\Lina\Commands;
 
-use BangNokia\Pekyll\Content;
-use BangNokia\Pekyll\ContentFinder;
-use BangNokia\Pekyll\MarkdownRenderer;
-use BangNokia\Pekyll\Parser;
+use BangNokia\Lina\Content;
+use BangNokia\Lina\ContentFinder;
+use BangNokia\Lina\MarkdownRenderer;
+use BangNokia\Lina\Parser;
 use LaravelZero\Framework\Commands\Command;
 
 class Build extends Command

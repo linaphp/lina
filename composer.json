@@ -1,5 +1,5 @@
 {
-    "name": "bangnokia/pekyll",
+    "name": "bangnokia/lina",
     "description": "static blog generator",
     "keywords": [
         "pekyll",
@@ -8,7 +8,7 @@
         "console",
         "cli"
     ],
-    "homepage": "https://pekyll.test",
+    "homepage": "https://lina.daudau.cc",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -34,7 +34,7 @@
     },
     "autoload": {
         "psr-4": {
-            "BangNokia\\Pekyll\\": "app/"
+            "BangNokia\\Lina\\": "app/"
         },
         "files": [
             "bootstrap/helpers.php"
@@ -56,6 +56,6 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "bin": [
-        "pekyll"
+        "lina"
     ]
 }

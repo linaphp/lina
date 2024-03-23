@@ -1,6 +1,6 @@
 <?php
 
-namespace BangNokia\Pekyll\Commands;
+namespace BangNokia\Lina\Commands;
 
 use Illuminate\Filesystem\Filesystem;
 use LaravelZero\Framework\Commands\Command;

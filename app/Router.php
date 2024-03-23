@@ -1,14 +1,14 @@
 <?php
 
-namespace BangNokia\Pekyll;
+namespace BangNokia\Lina;
 
 use LaravelZero\Framework\Application;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use BangNokia\Pekyll\Contracts\Renderer;
+use BangNokia\Lina\Contracts\Renderer;
 
-class Router implements \BangNokia\Pekyll\Contracts\Router
+class Router implements \BangNokia\Lina\Contracts\Router
 {
     protected Finder $finder;
 

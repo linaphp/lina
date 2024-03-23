@@ -1,8 +1,8 @@
 <?php
 
-namespace BangNokia\Pekyll;
+namespace BangNokia\Lina;
 
-use BangNokia\Pekyll\Contracts\MarkdownParser as MarkdownParserContract;
+use BangNokia\Lina\Contracts\MarkdownParser as MarkdownParserContract;
 use ParsedownToC;
 
 class MarkdownParser implements MarkdownParserContract

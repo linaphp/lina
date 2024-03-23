@@ -1,8 +1,8 @@
 <?php
 
-namespace BangNokia\Pekyll;
+namespace BangNokia\Lina;
 
-use BangNokia\Pekyll\Contracts\Renderer;
+use BangNokia\Lina\Contracts\Renderer;
 use Illuminate\Support\Facades\Blade;
 
 class MarkdownRenderer implements Renderer
