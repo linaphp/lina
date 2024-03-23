@@ -33,6 +33,15 @@ pre {
     }
 }
 
+p {
+    code {
+        background-color: #f4f4f4;
+        padding: 2px 6px;
+        border-radius: 0.25rem;
+        font-size: 0.875rem;
+        color: #4F95D1;
+    }
+}
 
 p {
     line-height: 1.75rem;

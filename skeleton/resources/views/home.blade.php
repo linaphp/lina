@@ -2,7 +2,6 @@
 
 @section('content')
     <h1 class="text-center">{{ $data->title }}</h1>
-    <p class="text-center">This is a static blog build with PHP.</p>
 
     {!! $data->content !!}
 
