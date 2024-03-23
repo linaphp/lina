@@ -79,9 +79,6 @@ return [
         \LaravelZero\Framework\Commands\MakeCommand::class,
         \LaravelZero\Framework\Commands\StubPublishCommand::class,
         \LaravelZero\Framework\Commands\RenameCommand::class,
-        \Pest\Laravel\Commands\PestDatasetCommand::class,
-        \Pest\Laravel\Commands\PestInstallCommand::class,
-        \Pest\Laravel\Commands\PestTestCommand::class,
         \NunoMaduro\Collision\Adapters\Laravel\Commands\TestCommand::class,
     ] : [],
 

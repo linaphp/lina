@@ -54,6 +54,6 @@ return [
     */
 
     'providers' => [
-        \BangNokia\Pekyll\Providers\AppServiceProvider::class,
+        \BangNokia\Lina\Providers\AppServiceProvider::class,
     ],
 ];
