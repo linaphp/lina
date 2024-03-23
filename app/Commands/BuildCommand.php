@@ -48,6 +48,6 @@ class BuildCommand extends Command
 
         file_put_contents($directory, $renderer->render(content_path($item->path)));
 
-//        $this->getOutput()->writeln('Built html for: ' . $item->filePath . '\r');
+        $this->getOutput()->writeln('Built html for: ' . $item->filePath . '\r');
     }
 }
