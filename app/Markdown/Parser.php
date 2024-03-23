@@ -4,7 +4,7 @@ namespace BangNokia\Lina\Markdown;
 
 use Tempest\Highlight\Highlighter;
 
-class Parser extends \ParsedownExtra
+class Parser extends \ParsedownToC
 {
     protected Highlighter $highlighter;
 
