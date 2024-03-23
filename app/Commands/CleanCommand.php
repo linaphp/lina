@@ -16,7 +16,7 @@ class CleanCommand extends Command
     {
         $finder = new Finder();
 
-        $finder->in(getcwd() . '/public')->ignoreVCS(true);
+        $finder->in(getcwd() . '/public')->name('*.html');
 
         foreach ($finder as $item) {
             if ($item->isFile()) {
