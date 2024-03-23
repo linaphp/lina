@@ -18,7 +18,7 @@ class BuildCommand extends Command
 //        file_get_contents('https://ping2.me/@daudau/debug?message=building');
         $finder = app(ContentFinder::class);
 
-        $items = $finder->index('./');
+        $items = $finder->index();
         $renderer = app(MarkdownRenderer::class);
 
         $this->warn('Building your site...');

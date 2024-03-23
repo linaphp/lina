@@ -64,10 +64,10 @@ class ContentFinder
         );
     }
 
-    public function index(string $directory): array
+    public function index(string $directory = ''): array
     {
         $posts = [];
-        $finder = (new Finder())->in($this->workingDir . ltrim('/' . $directory));
+        $finder = (new Finder())->in($this->workingDir . ltrim('/' . $directory))->name('*.md');
 
         foreach ($finder as $file) {
             if ($file->isDir()) {
