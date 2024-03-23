@@ -1,7 +1,6 @@
 ---
-
 title: About me
-layout: page
+layout: post
 ---
 
 I'm a web developer, I write code.
