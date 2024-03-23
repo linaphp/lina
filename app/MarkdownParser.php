@@ -7,15 +7,17 @@ use ParsedownToC;
 
 class MarkdownParser implements MarkdownParserContract
 {
-    protected ParsedownToC $driver;
+    protected $driver;
 
     public function __construct()
     {
-        $this->driver = new ParsedownToC();
+        $this->driver = new \BangNokia\Lina\Markdown\Parser();
     }
 
     public function parse(string $text): string
     {
-        return trim($this->driver->text($text));
+        $content =  trim($this->driver->text($text));
+//        dd($content);
+        return $content;
     }
 }

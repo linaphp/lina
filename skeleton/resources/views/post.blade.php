@@ -6,5 +6,6 @@
     <time>{{ $data->createdAt }}</time>
     <article>
         {!! $data->content !!}
+{{--        {{ $data->content }}--}}
     </article>
 @endsection
