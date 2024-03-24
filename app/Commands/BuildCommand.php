@@ -15,7 +15,6 @@ class BuildCommand extends Command
 
     public function handle(): int
     {
-//        file_get_contents('https://ping2.me/@daudau/debug?message=building');
         $finder = app(ContentFinder::class);
 
         $items = $finder->index();
@@ -39,8 +38,6 @@ class BuildCommand extends Command
 
     protected function buildItem(Content $item, MarkdownRenderer $renderer): void
     {
-        echo 'Building ' . $item->path . PHP_EOL;
-
         $directory = getcwd() . '/public/' . ($item->url() === '/' ? 'index.html' : ($item->url() . '/index.html'));
 
         if (!is_dir(dirname($directory))) {
@@ -49,6 +46,10 @@ class BuildCommand extends Command
 
         file_put_contents($directory, $renderer->render(content_path($item->path)));
 
-        $this->getOutput()->writeln('Built html for: ' . $item->filePath . '\r');
+        // only when enable verbose
+
+        if ($this->getOutput()->isVerbose()) {
+            $this->line('Built html for: ' . $item->path);
+        }
     }
 }
