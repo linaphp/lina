@@ -4,13 +4,13 @@ namespace BangNokia\Lina\Markdown;
 
 use Tempest\Highlight\Highlighter;
 
-class Parser extends \ParsedownExtra
+class Parser extends \Parsedown
 {
     protected Highlighter $highlighter;
 
     public function __construct()
     {
-        parent::__construct();
+//        parent::__construct();
 
         $this->highlighter = new Highlighter();
     }
