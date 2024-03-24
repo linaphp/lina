@@ -46,8 +46,6 @@ class BuildCommand extends Command
 
         file_put_contents($directory, $renderer->render(content_path($item->path)));
 
-        // only when enable verbose
-
         if ($this->getOutput()->isVerbose()) {
             $this->line('Built html for: ' . $item->path);
         }
