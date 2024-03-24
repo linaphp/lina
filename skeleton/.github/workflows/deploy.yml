@@ -21,13 +21,14 @@ jobs:
           extensions: curl, mbstring, zip, pcntl, pdo, iconv
           coverage: none
 
-      - name: Install Line
-        run: composer global require bangnokia/lina
+      - name: Install Lina
+        run: |
+          composer global config minimum-stability dev
+          composer global require bangnokia/lina:dev-main
 
       - name: Build
-        run: pekyll build
-
-      - run: rm ./public/.gitignore
+        run: |
+          lina build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
