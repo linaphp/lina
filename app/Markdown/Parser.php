@@ -10,8 +10,6 @@ class Parser extends \Parsedown
 
     public function __construct()
     {
-//        parent::__construct();
-
         $this->highlighter = new Highlighter();
     }
 
