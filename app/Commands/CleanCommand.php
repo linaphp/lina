@@ -2,8 +2,8 @@
 
 namespace BangNokia\Lina\Commands;
 
-use BangNokia\Lina\ContentFinder;
 use Illuminate\Console\Command;
+use League\Flysystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 
 class CleanCommand extends Command
