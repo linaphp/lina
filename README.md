@@ -18,19 +18,20 @@ composer global require bangnokia/lina
 ```
 
 ### Folder structure
+Lina is best suited for a simple blog. The folder structure is as follows:
 ```
 content/
     posts/
         2020-11-01-hello.md
     index.md
-
 resources/
     views/
-
 public/
+    images/
+    style.css
 ```
 
-There are some function that you can use to get content from your site.
+There are some functions that you can use to get content from your site.
 
 ### Get all content in a directory
 
@@ -40,11 +41,18 @@ foreach (lina()->index('post') as $post) {
 }
 ```
 
+### Template engine
+Lina uses Blade template engine. So basically, you can use all Blade features.
+
 ### Get a single content
 
 ```php
 $post = lina()->get('posts/2020-11-01-hello.md');
 ```
+
+
+
+## TODO
 
 - [x] Add `lina serve` command for development
 - [x] Add code highlighter support
