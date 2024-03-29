@@ -3,7 +3,7 @@
 use BangNokia\Lina\ContentFinder;
 
 if (!function_exists('list_content')) {
-    function cf(): ContentFinder
+    function lina(): ContentFinder
     {
         return app(ContentFinder::class);
     }

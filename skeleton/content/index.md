@@ -36,13 +36,15 @@ public/
 There are some function that you can use to get content from your site.
 
 ### Get all content in a directory
+
 ```php
-foreach (cf()->index('post') as $post) {
+foreach (lina()->index('post') as $post) {
     echo $post->title;
 }
 ```
 
 ### Get a single content
+
 ```php
-$post = cf()->get('posts/2020-11-01-hello.md');
+$post = lina()->get('posts/2020-11-01-hello.md');
 ```

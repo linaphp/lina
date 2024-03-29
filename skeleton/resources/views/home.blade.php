@@ -1,7 +1,7 @@
 @extends('app')
 
 @php
-    $posts = collect(cf()->index('posts'))->sort(fn($a, $b) => $b->createdAt <=> $a->createdAt);
+    $posts = collect(lina()->index('posts'))->sort(fn($a, $b) => $b->createdAt <=> $a->createdAt);
 @endphp
 
 @section('content')
@@ -16,7 +16,8 @@
             @foreach($posts as $post)
                 <li>
                     <x-date>{{ $post->createdAt }}</x-date>
-                    <a href="{{ $post->url() }}" class="block" style="padding: 0.25rem 0;">{{ $post->title }} {{ $post->createdAt }}</a>
+                    <a href="{{ $post->url() }}" class="block"
+                       style="padding: 0.25rem 0;">{{ $post->title }} {{ $post->createdAt }}</a>
                 </li>
             @endforeach
         </ul>
