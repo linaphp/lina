@@ -2,19 +2,25 @@
 
 **Lina** is an opinionated flat-file CMS for who want a simple and fast blog. The template using Blade template engine, so you can use all Blade features.
 
-To help you get started, we have created a few example posts. You can find them in the `content/posts` directory.
+## Features
+- **Blazing fast**: Lina is a lightweight and superfast static blog generator.
+- Written in PHP: so if you hate Javascript, Lina is for you.
+- Blade template engine: you can use all Blade features.'
+- Minimalistic: Lina is a static blog generator. It's not a full-fledged CMS.
+- Deploy everywhere! You know, just html files 🤣
 
 ## Requirements
 - PHP 8.3
 
 ## Getting started
 ```bash
-lina new my-blog
+composer global require bangnokia/lina
 ```
 
 ### Create a blog
+To create a skeleton blog, as a starting point, you can use the `new` command.
 ```bash
-composer global require bangnokia/lina
+lina new my-blog
 ```
 
 ### Folder structure
@@ -40,9 +46,6 @@ foreach (lina()->index('post') as $post) {
     echo $post->title;
 }
 ```
-
-### Template engine
-Lina uses Blade template engine. So basically, you can use all Blade features.
 
 ### Get a single content
 
