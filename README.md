@@ -67,5 +67,5 @@ We also support Cloudflare pages and Github pages if you start a new blog with `
 
 - [x] Add `lina serve` command for development
 - [x] Add code highlighter support
-- [ ] support live reloading
+- [ ] Support live reloading
 - [x] Cloudflare pages support
