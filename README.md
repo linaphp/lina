@@ -23,8 +23,7 @@ To create a skeleton blog, as a starting point, you can use the `new` command.
 lina new my-blog
 ```
 
-### Folder structure
-Lina is best suited for a simple blog. The folder structure is as follows:
+In case you want to migrate from another blog platform, you can check the base structure of Lina
 ```
 content/
     posts/
@@ -32,10 +31,17 @@ content/
     index.md
 resources/
     views/
-public/
+        index.blade.php
+        post.blade.php
+public/ 
     images/
     style.css
 ```
+
+
+- `content` directory is where you store your markdown content file.
+- `resources/views` directory is where you store your blade template.
+- `public` directory is where you store your assets like images, css, ... This folder is also where all the generated files are stored. So please remember to add your custom files to `.gitignore` if you want to store them in `git`
 
 There are some functions that you can use to get content from your site.
 
