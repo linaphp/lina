@@ -49,4 +49,4 @@ $post = lina()->get('posts/2020-11-01-hello.md');
 - [x] Add `lina serve` command for development
 - [x] Add code highlighter support
 - [ ] support live reloading
-- [ ] Cloudflare pages support
+- [x] Cloudflare pages support
