@@ -59,7 +59,9 @@ foreach (lina()->index('post') as $post) {
 $post = lina()->get('posts/2020-11-01-hello.md');
 ```
 
-
+## Deployments
+Lina can be deployed to any static hosting provider. Here are some examples: Github pages, Netlify, Vercel, Cloudflare pages, ...
+We also support Cloudflare pages and Github pages if you start a new blog with `lina new my-blog`. Otherwise, you can check out the scripts in the `skeleton` directory.
 
 ## TODO
 
