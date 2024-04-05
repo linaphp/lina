@@ -84,6 +84,9 @@ We also provide a configuration file for Cloudflare pages. You can find it in `c
 Also you need to change the `Build configuration` like this.
 ![Cloudflare deploy](cloudflare_config.png)
 
+## Who're using Lina
+So, you know, at least that's me. You can view source of my personal blog [here](https://github.com/bangnokia/daudau.cc)
+
 ## TODO
 
 - [x] Add `lina serve` command for development
