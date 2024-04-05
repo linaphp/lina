@@ -1,6 +1,6 @@
 # Lina PHP - lightweight and blazing fast static blog generator
 
-**Lina** is an opinionated flat-file CMS for who want a simple and fast blog. The template using Blade template engine, so you can use all Blade features.
+**Lina** is an opinionated flat-file CMS for who want a simple and fast blog. Lina uses Blade template engine, so you can use all Blade features.
 
 ## Features
 - **Blazing fast**: Lina is a lightweight and superfast static blog generator.
