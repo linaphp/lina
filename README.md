@@ -1,4 +1,6 @@
-<img src="icon.png" width="120" height="120" alt="lina's logo" style="margin: 0 auto; display: block">
+<p>
+    <img src="icon.png" width="120" height="120" alt="lina's logo" style="margin: 0 auto; display: block">
+</p>
 
 # Lina PHP - lightweight and blazing fast static blog generator
 
