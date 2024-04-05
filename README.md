@@ -109,8 +109,8 @@ Also you need to change the `Build configuration` like this.
 ## Built with Lina
 
 So, you know, at least that's me. 
-- [daudau.cc](https://daudau.cc): My personal blog
-- [Lina's landing page](https://lina.daudau.cc): Lina's site (this site is built with Lina, of course)
+- [daudau.cc](https://daudau.cc): My personal blog. [Source code](https://github.com/bangnokia/daudau.cc).
+- [Lina's landing page](https://lina.daudau.cc): Lina's site (this site is built with Lina, of course). [Source code](https://github.com/bangnokia/lina-site).
 
 ## TODO
 
