@@ -36,6 +36,12 @@ jobs:
           composer install --no-dev
           make build-phar
 
+      - name: upload binaries to release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: ./builds/lina.phar
+
       - name: Upload artifact to release
         uses: actions/upload-artifact@v4
         with:
