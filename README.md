@@ -53,10 +53,14 @@ public/
 - `resources/views` directory is where you store your blade template.
 - `public` directory is where you store your assets like images, css, ... This folder is also where all the generated files are stored. So please remember to add your custom files to `.gitignore` if you want to store them in `git`
 
-There are some functions that you can use to get content from your site.
+**We really recommend you to prefix your content file with the date, so it will easy to sort and find your content. Lina automatically strip the date from the slug, so you don't need to worry about the url.**
+
+## Helper functions
+There are some functions that you can use to programmatically access your content.
 
 ### Get all content in a directory
 
+Get all the content in a directory. The content will be sorted by the date in the filename.
 ```php
 foreach (lina()->index('post') as $post) {
     echo $post->title;
