@@ -39,6 +39,11 @@ lina new my-blog
 lina serve
 ```
 
+Or you can use the `phar` file
+```bash
+curl -LO https://github.com/bangnokia/lina/releases/latest/download/lina.phar && chmod +x lina.phar
+```
+
 ## Folder structure
 
 In case you want to migrate from another blog platform, you can check the base structure of Lina
