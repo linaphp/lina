@@ -40,12 +40,12 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: phar
-          path: ./build/pest.phar
+          path: ./builds/lina.phar
 
       - name: Create release
         uses: softprops/action-gh-release@v1
         with:
-          files: ./build/pest.phar
+          files: ./builds/lina.phar
           tag_name: ${{ github.ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
 
