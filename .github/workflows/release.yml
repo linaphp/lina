@@ -36,7 +36,6 @@ jobs:
 
       - name: Compile phar file
         run: |
-          composer install --no-dev
           make build-phar
 
       - name: upload binaries to release
