@@ -81,6 +81,8 @@ So you please modify the file `.github/workflows/deploy.yml` to match your deman
 
 ### Deploy on Cloudflare pages
 We also provide a configuration file for Cloudflare pages. You can find it in `cloudflare-page.sh`. You can modify it to match your demand.
+Also you need to change the `Build configuration` like this.
+![Cloudflare deploy](cloudflare_config.png)
 
 ## TODO
 
