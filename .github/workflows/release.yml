@@ -39,7 +39,7 @@ jobs:
       - name: Upload artifact to release
         uses: actions/upload-artifact@v2
         with:
-          name: phar
+          name: lina.phar
           path: ./builds/lina.phar
 
 
