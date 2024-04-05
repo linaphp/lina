@@ -13,9 +13,18 @@
 - PHP 8.3
 
 ## Getting started
+There are some ways to install Lina:
+
+Require Lina as global dependency
 ```bash
 composer global require bangnokia/lina
 ```
+Init a new blog
+```bash
+lina new my-blog
+```
+
+
 
 ### Create a blog
 To create a skeleton blog, as a starting point, you can use the `new` command.
