@@ -10,6 +10,7 @@
         "composer.json",
         "server.php"
     ],
+    "output": "builds/lina.phar",
     "exclude-composer-files": false,
     "compression": "GZ",
     "compactors": [

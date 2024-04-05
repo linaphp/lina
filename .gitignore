@@ -2,7 +2,10 @@
 /.idea
 /.vscode
 /.vagrant
+/bin/*
 /.phpunit.cache
 .phpunit.result.cache
 composer.lock
 phpunit.xml.dist.bak
+lina.phar
+
