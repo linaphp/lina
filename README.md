@@ -1,3 +1,5 @@
+<img src="icon.png" width="120" height="120" alt="lina's logo" style="margin: 0 auto; display: block">
+
 # Lina PHP - lightweight and blazing fast static blog generator
 
 **Lina** is an opinionated flat-file CMS for who want a simple and fast blog. Lina uses Blade template engine, so you can use all Blade features.
