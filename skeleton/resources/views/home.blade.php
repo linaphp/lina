@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layout')
 
 @php
     $posts = collect(lina()->index('posts'))->sort(fn($a, $b) => $b->createdAt <=> $a->createdAt);
