@@ -1,6 +1,8 @@
 name: Build phar file
 
-on: [ release ]
+on:
+  release:
+    types: created
 
 jobs:
   tests:
