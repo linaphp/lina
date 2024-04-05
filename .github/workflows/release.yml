@@ -42,11 +42,5 @@ jobs:
           name: phar
           path: ./builds/lina.phar
 
-      - name: Create release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: ./builds/lina.phar
-          tag_name: ${{ github.ref }}
-          token: ${{ secrets.GITHUB_TOKEN }}
 
 
