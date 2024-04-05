@@ -37,7 +37,7 @@ jobs:
           make build-phar
 
       - name: Upload artifact to release
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: lina.phar
           path: ./builds/lina.phar
