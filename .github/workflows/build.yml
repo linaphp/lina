@@ -35,9 +35,3 @@ jobs:
         run: |
           composer install --no-dev
           make build-phar
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: phar
-          path: ./builds/lina.phar

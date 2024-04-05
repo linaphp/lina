@@ -36,8 +36,17 @@ jobs:
           composer install --no-dev
           make build-phar
 
-      - name: Upload artifact
+      - name: Upload artifact to release
         uses: actions/upload-artifact@v2
         with:
           name: phar
-          path: ./builds/lina.phar
+          path: ./build/pest.phar
+
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./build/pest.phar
+          tag_name: ${{ github.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+
