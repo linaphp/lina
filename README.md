@@ -15,23 +15,24 @@
 ## Getting started
 There are some ways to install Lina:
 
-Require Lina as global dependency
+Require Lina as dependency, with this option, you can keep lina up-to-date easily.
+```bash
+mkdir my-blog
+composer init # then follow the instructions
+composer require bangnokia/lina
+./vendor/bin/lina new . # scaffolding a new blog skeleton in the current directory
+./vendor/bin/lina serve # start a development server and happy writing
+```
+
+Or install Lina as global composer package
 ```bash
 composer global require bangnokia/lina
-```
-Init a new blog
-```bash
 lina new my-blog
+lina serve
 ```
 
 
-
-### Create a blog
-To create a skeleton blog, as a starting point, you can use the `new` command.
-```bash
-lina new my-blog
-```
-
+## Folder structure
 In case you want to migrate from another blog platform, you can check the base structure of Lina
 ```
 content/
@@ -70,7 +71,12 @@ $post = lina()->get('posts/2020-11-01-hello.md');
 
 ## Deployments
 Lina can be deployed to any static hosting provider. Here are some examples: Github pages, Netlify, Vercel, Cloudflare pages, ...
-We also support Cloudflare pages and Github pages if you start a new blog with `lina new my-blog`. Otherwise, you can check out the scripts in the `skeleton` directory.
+
+### Deploy on Github pages
+So you please modify the file `.github/workflows/deploy.yml` to match your demand.
+
+### Deploy on Cloudflare pages
+We also provide a configuration file for Cloudflare pages. You can find it in `cloudflare-page.sh`. You can modify it to match your demand.
 
 ## TODO
 
