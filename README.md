@@ -106,9 +106,11 @@ match your demand.
 Also you need to change the `Build configuration` like this.
 ![Cloudflare deploy](cloudflare_config.png)
 
-## Who're using Lina
+## Built with Lina
 
-So, you know, at least that's me. You can view source of my personal blog [here](https://github.com/bangnokia/daudau.cc)
+So, you know, at least that's me. 
+- [daudau.cc](https://daudau.cc): My personal blog
+- [Lina's landing page](https://lina.daudau.cc): Lina's site (this site is built with Lina, of course)
 
 ## TODO
 
