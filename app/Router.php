@@ -2,6 +2,8 @@
 
 namespace BangNokia\Lina;
 
+use BangNokia\Lina\Commands\WebsocketServeCommand;
+use Illuminate\Support\Facades\Cache;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,11 +31,35 @@ class Router implements \BangNokia\Lina\Contracts\Router
 
         $contentFileRealPath = $this->contentFinder->tryFind($path);
 
+        $html = app(MarkdownRenderer::class)->render($contentFileRealPath);
+
+        // we don't have middleware so let inject the websocket script here
+        $html = $this->injectWebSocketScript($html);
+
         return new Response(
-            app(MarkdownRenderer::class)->render($contentFileRealPath),
+            $html,
             200,
             ['Content-Type' => 'text/html']
         );
+    }
+
+    protected function injectWebSocketScript(string $html): string
+    {
+        $port = WebsocketServeCommand::port();
+
+        $script = <<<JS
+<script>
+    (new WebSocket('ws://127.0.0.1:$port')).onmessage = function (message) {
+        if (message.data === 'reload') {
+            window.location.reload(true);
+        }
+    };
+</script>
+JS;
+
+        $html = $html . $script; // so who care about well-formed html here xD!
+
+        return $html;
     }
 
     protected function isStaticFile(string $path): bool

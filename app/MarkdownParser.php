@@ -3,7 +3,6 @@
 namespace BangNokia\Lina;
 
 use BangNokia\Lina\Contracts\MarkdownParser as MarkdownParserContract;
-use ParsedownToC;
 
 class MarkdownParser implements MarkdownParserContract
 {
@@ -16,8 +15,6 @@ class MarkdownParser implements MarkdownParserContract
 
     public function parse(string $text): string
     {
-        $content =  trim($this->driver->text($text));
-//        dd($content);
-        return $content;
+        return trim($this->driver->text($text));
     }
 }
