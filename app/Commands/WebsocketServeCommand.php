@@ -4,6 +4,7 @@ namespace BangNokia\Lina\Commands;
 
 use BangNokia\Lina\Socket;
 use BangNokia\Lina\Watcher;
+use Illuminate\Support\Facades\Cache;
 use LaravelZero\Framework\Commands\Command;
 use Ratchet\Http\HttpServer;
 use Ratchet\Server\IoServer;
@@ -39,7 +40,8 @@ class WebsocketServeCommand extends Command
             $this->line("<info>Starting websocket server:</info> ws://{$this->host()}:{$this->port()}");
         });
 
-        $this->startWatcher()
+        $this
+            ->startWatcher()
             ->startServer();
     }
 
@@ -74,6 +76,7 @@ class WebsocketServeCommand extends Command
                 new Reactor("{$this->host()}:{$this->port()}", [], $this->loop),
                 $this->loop
             );
+            $this->loop->addPeriodicTimer(1, fn() => Cache::put('ws_is_running', true, 5));
 
             $this->server->run();
         } catch (\Exception $exception) {
@@ -86,7 +89,12 @@ class WebsocketServeCommand extends Command
         return $this;
     }
 
-    public function host()
+    public static function isRunning(): bool
+    {
+        return Cache::get('ws_is_running', false);
+    }
+
+    public static function host()
     {
         return '127.0.0.1';
     }

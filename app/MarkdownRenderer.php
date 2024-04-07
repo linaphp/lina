@@ -3,7 +3,6 @@
 namespace BangNokia\Lina;
 
 use BangNokia\Lina\Contracts\Renderer;
-use Illuminate\Support\Facades\Blade;
 
 class MarkdownRenderer implements Renderer
 {
@@ -17,9 +16,9 @@ class MarkdownRenderer implements Renderer
         config(['view.compiled' => $this->rootDir . '/resources/cache']);
     }
 
-    public function render(string $realPath): string
+    public function render(string $file): string
     {
-        $content = app(ContentFinder::class)->get($realPath, true);
+        $content = app(ContentFinder::class)->get($file, true);
 
         return view($content->layout, [
             'data' => $content,
