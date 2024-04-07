@@ -6,9 +6,9 @@ use LaravelZero\Framework\Commands\Command;
 use Symfony\Component\Process\PhpExecutableFinder;
 use Symfony\Component\Process\Process;
 
-class ServeCommand extends Command
+class HttpServeCommand extends Command
 {
-    protected $signature = 'serve';
+    protected $signature = 'serve:http';
 
     protected $description = 'Start simple web server for development';
 

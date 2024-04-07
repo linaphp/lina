@@ -16,7 +16,7 @@ use React\Socket\SocketServer as Reactor;
 
 class WebsocketServeCommand extends Command
 {
-    protected $signature = 'ws:serve';
+    protected $signature = 'serve:ws';
 
     protected $description = 'Start websocket server for development';
 
