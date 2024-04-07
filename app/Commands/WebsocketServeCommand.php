@@ -53,9 +53,9 @@ class WebsocketServeCommand extends Command
 
         (new Watcher($this->loop, $finder))
             ->startWatching(function () {
+                $this->info('Changes detected, reloading...');
                 collect(Socket::$clients)
                     ->map(function (ConnectionInterface $client) {
-                        $this->info('Changes detected, reloading...');
                         $client->send('reload');
                     });
             });
