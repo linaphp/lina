@@ -12,6 +12,8 @@ class HttpServeCommand extends Command
 
     protected $description = 'Start simple web server for development';
 
+    protected $hidden = true;
+
     protected int $portOffset = 0;
 
     public function handle()

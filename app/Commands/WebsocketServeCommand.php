@@ -9,6 +9,7 @@ use Ratchet\Http\HttpServer;
 use Ratchet\Server\IoServer;
 use Ratchet\WebSocket\WsServer;
 use React\EventLoop\Loop;
+use React\EventLoop\LoopInterface;
 use Symfony\Component\Finder\Finder;
 use Ratchet\ConnectionInterface;
 use React\Socket\SocketServer as Reactor;
@@ -20,13 +21,15 @@ class WebsocketServeCommand extends Command
 
     protected $description = 'Start websocket server for development';
 
-    protected $loop;
+    protected $hidden = true;
 
-    protected $server;
+    protected LoopInterface $loop;
 
-    public static $port = 9696;
+    protected IoServer $server;
 
-    public static $portOffset = 0;
+    public static int $port = 9696;
+
+    public static int $portOffset = 0;
 
     public function handle()
     {
