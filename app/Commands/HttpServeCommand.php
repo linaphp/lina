@@ -42,7 +42,7 @@ class HttpServeCommand extends Command
         $process = new Process($this->serverCommand(), timeout: 0);
 
         $process->start(function ($type, $data) {
-            $this->output->write($data);
+//            $this->output->write($data);
         });
 
         // Stop the server when the user hits Ctrl+C
