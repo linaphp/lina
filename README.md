@@ -24,9 +24,7 @@ There are some ways to install Lina:
 Require Lina as dependency, with this option, you can keep lina up-to-date easily.
 
 ```bash
-mkdir my-blog
-composer init # then follow the instructions
-composer require bangnokia/lina
+mkdir my-blog && cd my-blog && composer init --name=linaphp/blog --no-interaction --require=bangnokia/lina:^0.5 && composer install
 ./vendor/bin/lina new . # scaffolding a new blog skeleton in the current directory
 ./vendor/bin/lina serve # start a development server and happy writing
 ```
