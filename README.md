@@ -32,14 +32,14 @@ mkdir my-blog && cd my-blog && composer init --name=linaphp/blog --no-interactio
 Or install Lina as global composer package
 
 ```bash
-composer global require bangnokia/lina
+composer global require linaphp/lina
 lina new my-blog
 lina serve
 ```
 
 Or you can use the `phar` file
 ```bash
-curl -LO https://github.com/bangnokia/lina/releases/latest/download/lina.phar && chmod +x lina.phar
+curl -LO https://github.com/linaphp/lina/releases/latest/download/lina.phar && chmod +x lina.phar
 ```
 
 ## Folder structure
