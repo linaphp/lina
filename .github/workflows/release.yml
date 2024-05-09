@@ -39,8 +39,8 @@ jobs:
           composer install --no-dev --optimize-autoloader --no-progress --no-suggest
           make build-phar
 
-      - name: upload binaries to release
-        uses: softprops/action-gh-release@v2
+      - name: Upload binaries to release
+        uses: softprops/action-gh-release@v3
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: ./builds/lina.phar
