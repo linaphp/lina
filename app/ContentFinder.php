@@ -3,6 +3,7 @@
 namespace BangNokia\Lina;
 
 use BangNokia\Lina\Exceptions\ContentNotFoundException;
+use BangNokia\Lina\Exceptions\InvalidMarkdownContent;
 use BangNokia\Lina\Exceptions\ManyContentFound;
 use Symfony\Component\Finder\Finder;
 
@@ -47,7 +48,12 @@ class ContentFinder
 
         $content = file_get_contents($absolutePath);
 
-        $data = (new Parser(new MarkdownParser()))->parse($content);
+        try {
+            $data = (new Parser(new MarkdownParser()))->parse($content);
+        } catch (\Exception $exception) {
+            throw new InvalidMarkdownContent($filePath);
+        }
+
         $fileName = basename($filePath, '.md');
 
         if (preg_match('/(\d{4}-\d{2}-\d{2}-)?(.*)/', $fileName, $matches)) {

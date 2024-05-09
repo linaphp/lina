@@ -3,6 +3,7 @@
 namespace BangNokia\Lina;
 
 use BangNokia\Lina\Contracts\MarkdownParser;
+use BangNokia\Lina\Exceptions\InvalidMarkdownContent;
 use Symfony\Component\Yaml\Yaml;
 
 class Parser
@@ -16,22 +17,33 @@ class Parser
 
     public function parse(string $text): array
     {
-        ['yaml' => $yaml, 'markdown' => $markdown] = $this->classify($text);
+        try {
+            ['yaml' => $yaml, 'markdown' => $markdown] = $this->classify($text);
 
-        return [
-            'front_matter' => $this->parseFrontMatter($yaml),
-            'content'      => $this->markdownParser->parse($markdown)
-        ];
+            return [
+                'front_matter' => $this->parseFrontMatter($yaml),
+                'content'      => $this->markdownParser->parse($markdown)
+            ];
+        } catch (\Exception $exception) {
+            throw new InvalidMarkdownContent($text);
+        }
     }
 
-    public function parseFrontMatter(string $text): array
+    public function parseFrontMatter(string $text): ?array
     {
-        return Yaml::parse($text);
+        return Yaml::parse($text) ?? [];
     }
 
     public function classify(string $text): array
     {
         $pos = strpos($text, '---', 1);
+
+        if ($pos === false) {
+            return [
+                'yaml'     => '',
+                'markdown' => $text,
+            ];
+        }
 
         return [
             'yaml'     => trim(substr($text, 4, $pos - 4)),
