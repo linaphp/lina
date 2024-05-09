@@ -1,9 +1,9 @@
 <?php
 
-namespace BangNokia\Lina;
+namespace LinaPhp\Lina;
 
-use BangNokia\Lina\Contracts\MarkdownParser;
-use BangNokia\Lina\Exceptions\InvalidMarkdownContent;
+use LinaPhp\Lina\Contracts\MarkdownParser;
+use LinaPhp\Lina\Exceptions\InvalidMarkdownContent;
 use Symfony\Component\Yaml\Yaml;
 
 class Parser

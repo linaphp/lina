@@ -1,6 +1,6 @@
 <?php
 
-namespace BangNokia\Lina;
+namespace LinaPhp\Lina;
 
 class Content
 {

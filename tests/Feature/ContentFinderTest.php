@@ -1,7 +1,7 @@
 <?php
 
-use BangNokia\Lina\ContentFinder;
-use BangNokia\Lina\Exceptions\ContentNotFoundException;
+use LinaPhp\Lina\ContentFinder;
+use LinaPhp\Lina\Exceptions\ContentNotFoundException;
 
 it('can find the index markdown file', function () {
     chdirToSkeleton();

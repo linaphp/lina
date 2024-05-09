@@ -1,6 +1,6 @@
 <?php
 
-namespace BangNokia\Lina\Commands;
+namespace LinaPhp\Lina\Commands;
 
 use Illuminate\Process\Pool;
 use Illuminate\Support\Facades\Process;

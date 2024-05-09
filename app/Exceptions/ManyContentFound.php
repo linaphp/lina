@@ -1,6 +1,6 @@
 <?php
 
-namespace BangNokia\Lina\Exceptions;
+namespace LinaPhp\Lina\Exceptions;
 
 class ManyContentFound extends \Exception
 {

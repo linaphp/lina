@@ -1,6 +1,6 @@
 <?php
 
-namespace BangNokia\Lina;
+namespace LinaPhp\Lina;
 
 use Illuminate\Support\Facades\Cache;
 use LinaPhp\ResourceWatcher\Crc32ContentHash;

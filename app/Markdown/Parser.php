@@ -1,6 +1,6 @@
 <?php
 
-namespace BangNokia\Lina\Markdown;
+namespace LinaPhp\Lina\Markdown;
 
 use Tempest\Highlight\Highlighter;
 

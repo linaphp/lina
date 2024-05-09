@@ -1,6 +1,6 @@
 <?php
 
-namespace BangNokia\Lina\Contracts;
+namespace LinaPhp\Lina\Contracts;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

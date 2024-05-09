@@ -1,12 +1,12 @@
 <?php
 
-namespace BangNokia\Lina\Providers;
+namespace LinaPhp\Lina\Providers;
 
-use BangNokia\Lina\ContentFinder;
-use BangNokia\Lina\Contracts\MarkdownParser as MarkdownParserContract;
-use BangNokia\Lina\Contracts\Router;
-use BangNokia\Lina\MarkdownParser;
-use BangNokia\Lina\MarkdownRenderer;
+use LinaPhp\Lina\ContentFinder;
+use LinaPhp\Lina\Contracts\MarkdownParser as MarkdownParserContract;
+use LinaPhp\Lina\Contracts\Router;
+use LinaPhp\Lina\MarkdownParser;
+use LinaPhp\Lina\MarkdownRenderer;
 use Illuminate\Console\Signals;
 use Illuminate\Support\ServiceProvider;
 use Symfony\Component\Console\SignalRegistry\SignalRegistry;
@@ -18,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(MarkdownParserContract::class, MarkdownParser::class);
 
         $this->app->singleton(Router::class, function ($app) {
-            return new \BangNokia\Lina\Router(
+            return new \LinaPhp\Lina\Router(
                 new ContentFinder(getcwd())
             );
         });

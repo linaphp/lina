@@ -1,6 +1,6 @@
 <?php
 
-namespace BangNokia\Lina;
+namespace LinaPhp\Lina;
 
 use Ratchet\ConnectionInterface;
 use Ratchet\RFC6455\Messaging\MessageInterface;

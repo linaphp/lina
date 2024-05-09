@@ -1,10 +1,10 @@
 <?php
 
-namespace BangNokia\Lina\Commands;
+namespace LinaPhp\Lina\Commands;
 
-use BangNokia\Lina\Content;
-use BangNokia\Lina\ContentFinder;
-use BangNokia\Lina\MarkdownRenderer;
+use LinaPhp\Lina\Content;
+use LinaPhp\Lina\ContentFinder;
+use LinaPhp\Lina\MarkdownRenderer;
 use LaravelZero\Framework\Commands\Command;
 
 class BuildCommand extends Command

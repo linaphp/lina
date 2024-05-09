@@ -1,6 +1,6 @@
 <?php
 
-use BangNokia\Lina\Parser;
+use LinaPhp\Lina\Parser;
 
 beforeEach(function () {
     $this->parser = app()->make(Parser::class);

@@ -1,5 +1,5 @@
 {
-    "name": "bangnokia/lina",
+    "name": "linaphp/lina",
     "description": "static blog generator",
     "keywords": [
         "pekyll",
@@ -36,7 +36,7 @@
     },
     "autoload": {
         "psr-4": {
-            "BangNokia\\Lina\\": "app/"
+            "LinaPhp\\Lina\\": "app/"
         },
         "files": [
             "bootstrap/helpers.php"

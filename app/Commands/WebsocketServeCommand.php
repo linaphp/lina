@@ -1,9 +1,9 @@
 <?php
 
-namespace BangNokia\Lina\Commands;
+namespace LinaPhp\Lina\Commands;
 
-use BangNokia\Lina\Socket;
-use BangNokia\Lina\Watcher;
+use LinaPhp\Lina\Socket;
+use LinaPhp\Lina\Watcher;
 use Illuminate\Support\Facades\Cache;
 use LaravelZero\Framework\Commands\Command;
 use Ratchet\Http\HttpServer;

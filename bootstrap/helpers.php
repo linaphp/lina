@@ -1,6 +1,6 @@
 <?php
 
-use BangNokia\Lina\ContentFinder;
+use LinaPhp\Lina\ContentFinder;
 
 if (!function_exists('list_content')) {
     function lina(): ContentFinder

@@ -1,14 +1,14 @@
 <?php
 
-namespace BangNokia\Lina;
+namespace LinaPhp\Lina;
 
-use BangNokia\Lina\Commands\WebsocketServeCommand;
+use LinaPhp\Lina\Commands\WebsocketServeCommand;
 use Illuminate\Support\Facades\Cache;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class Router implements \BangNokia\Lina\Contracts\Router
+class Router implements \LinaPhp\Lina\Contracts\Router
 {
     protected Finder $finder;
 

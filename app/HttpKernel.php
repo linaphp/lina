@@ -1,6 +1,6 @@
 <?php
 
-namespace BangNokia\Lina;
+namespace LinaPhp\Lina;
 
 use Illuminate\Contracts\Foundation\Application;
 

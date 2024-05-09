@@ -33,7 +33,7 @@ $app->singleton(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    BangNokia\Lina\HttpKernel::class
+    LinaPhp\Lina\HttpKernel::class
 );
 
 $app->singleton(

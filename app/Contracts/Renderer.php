@@ -1,6 +1,6 @@
 <?php
 
-namespace BangNokia\Lina\Contracts;
+namespace LinaPhp\Lina\Contracts;
 
 interface Renderer
 {

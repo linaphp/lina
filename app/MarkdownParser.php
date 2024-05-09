@@ -1,8 +1,8 @@
 <?php
 
-namespace BangNokia\Lina;
+namespace LinaPhp\Lina;
 
-use BangNokia\Lina\Contracts\MarkdownParser as MarkdownParserContract;
+use LinaPhp\Lina\Contracts\MarkdownParser as MarkdownParserContract;
 
 class MarkdownParser implements MarkdownParserContract
 {
@@ -10,7 +10,7 @@ class MarkdownParser implements MarkdownParserContract
 
     public function __construct()
     {
-        $this->driver = new \BangNokia\Lina\Markdown\Parser();
+        $this->driver = new \LinaPhp\Lina\Markdown\Parser();
     }
 
     public function parse(string $text): string

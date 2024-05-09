@@ -1,8 +1,8 @@
 <?php
 
-namespace BangNokia\Lina;
+namespace LinaPhp\Lina;
 
-use BangNokia\Lina\Contracts\Renderer;
+use LinaPhp\Lina\Contracts\Renderer;
 
 class MarkdownRenderer implements Renderer
 {

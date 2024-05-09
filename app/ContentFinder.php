@@ -1,10 +1,10 @@
 <?php
 
-namespace BangNokia\Lina;
+namespace LinaPhp\Lina;
 
-use BangNokia\Lina\Exceptions\ContentNotFoundException;
-use BangNokia\Lina\Exceptions\InvalidMarkdownContent;
-use BangNokia\Lina\Exceptions\ManyContentFound;
+use LinaPhp\Lina\Exceptions\ContentNotFoundException;
+use LinaPhp\Lina\Exceptions\InvalidMarkdownContent;
+use LinaPhp\Lina\Exceptions\ManyContentFound;
 use Symfony\Component\Finder\Finder;
 
 class ContentFinder

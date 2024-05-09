@@ -55,6 +55,6 @@ return [
     */
 
     'providers' => [
-        \BangNokia\Lina\Providers\AppServiceProvider::class,
+        \LinaPhp\Lina\Providers\AppServiceProvider::class,
     ],
 ];
