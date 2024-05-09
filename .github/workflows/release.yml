@@ -41,7 +41,7 @@ jobs:
           make build-phar
 
       - name: Upload binaries to release
-        uses: softprops/action-gh-release@v3
+        uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: ./builds/lina.phar
