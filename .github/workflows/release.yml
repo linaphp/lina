@@ -6,8 +6,9 @@ on:
       - '*'
 
 jobs:
-  tests:
-
+  release:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
 
     strategy:
