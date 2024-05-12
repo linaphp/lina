@@ -28,7 +28,8 @@
         "linaphp/resource-watcher": "^0.1.1",
         "symfony/http-foundation": "^6.0",
         "symfony/yaml": "^6.0",
-        "tempest/highlight": "1.*"
+        "tempest/highlight": "1.*",
+        "ext-pcntl": "*"
     },
     "require-dev": {
         "mockery/mockery": "^1.4.2",
