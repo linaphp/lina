@@ -38,7 +38,7 @@ class BuildCommand extends Command
 
     protected function buildItem(Content $item, MarkdownRenderer $renderer): void
     {
-        $directory = getcwd() . '/public/' . ($item->url() === '/' ? 'index.html' : ($item->url() . '/index.html'));
+        $directory = getcwd() . '/public/' . ($item->url() === '/' ? 'index.html' : ($item->url() . '.html'));
 
         if (!is_dir(dirname($directory))) {
             mkdir(dirname($directory), 0755, true);
