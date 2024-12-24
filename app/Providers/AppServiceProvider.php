@@ -9,11 +9,10 @@ use LinaPhp\Lina\MarkdownParser;
 use LinaPhp\Lina\MarkdownRenderer;
 use Illuminate\Console\Signals;
 use Illuminate\Support\ServiceProvider;
-use Symfony\Component\Console\SignalRegistry\SignalRegistry;
 
 class AppServiceProvider extends ServiceProvider
 {
-    public function register()
+    public function register(): void
     {
         $this->app->bind(MarkdownParserContract::class, MarkdownParser::class);
 
@@ -35,6 +34,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         config(['view.paths' => [getcwd() . '/resources/views']]);
-        config(['view.compiled' => getcwd() . '/resources/cache']);
+        config(['view.compiled' => getcwd() . '/composer/.lina/cache']);
     }
 }

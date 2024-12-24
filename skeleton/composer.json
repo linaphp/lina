@@ -1,0 +1,13 @@
+{
+    "name": "linaphp/lina-site",
+    "description": "The skeleton application for the Lina static site generator.",
+    "type": "project",
+    "keywords": ["linaphp", "static-site"],
+    "require": {
+        "linaphp/lina": "^0.6"
+    },
+    "license": "MIT",
+    "scripts": {
+        "serve": "./vendor/bin/lina serve"
+    }
+}
