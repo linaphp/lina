@@ -3,7 +3,6 @@
 namespace LinaPhp\Lina;
 
 use LinaPhp\Lina\Commands\WebsocketServeCommand;
-use Illuminate\Support\Facades\Cache;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
