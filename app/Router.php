@@ -56,9 +56,7 @@ class Router implements \LinaPhp\Lina\Contracts\Router
 </script>
 JS;
 
-        $html = $html . $script; // so who care about well-formed html here xD!
-
-        return $html;
+        return $html . $script; // so who care about well-formed html here xD!
     }
 
     protected function isStaticFile(string $path): bool
