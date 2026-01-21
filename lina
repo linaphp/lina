@@ -3,6 +3,10 @@
 
 define('LARAVEL_START', microtime(true));
 
+// Suppress deprecation notices (e.g. parsedown implicit nullable param warnings on newer PHP)
+// Long-term: upgrade erusev/parsedown and erusev/parsedown-extra to versions compatible with PHP 8.3
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
