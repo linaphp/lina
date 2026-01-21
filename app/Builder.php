@@ -36,7 +36,7 @@ class Builder
         return $this->storage;
     }
 
-    protected function setConfigViewPaths(string $path = null): self
+    protected function setConfigViewPaths(?string $path = null): self
     {
         $path = $path ?? $this->workingPath;
         config(['view.paths' => [$path.'/resources/views']]);
