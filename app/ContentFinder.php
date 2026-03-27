@@ -11,7 +11,7 @@ class ContentFinder
 {
     protected ?string $workingDir = null;
 
-    public function __construct(string $workingDir = null)
+    public function __construct(?string $workingDir = null)
     {
         $this->workingDir = $workingDir ?: getcwd() . '/content';
     }
