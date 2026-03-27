@@ -18,7 +18,10 @@ class Router implements \LinaPhp\Lina\Contracts\Router
 
     public function parse(Request $request): Response
     {
-        $path = $request->getScriptName();
+        $path = $request->getPathInfo();
+        if (!$path) {
+            $path = '/';
+        }
 
         if ($this->isStaticFile($path)) {
             return new Response(
