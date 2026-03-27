@@ -18,14 +18,12 @@ class Router implements \LinaPhp\Lina\Contracts\Router
 
     public function parse(Request $request): Response
     {
-        $path = $request->getPathInfo();
-        if (!$path) {
-            $path = '/';
-        }
+        $path = rawurldecode(parse_url($request->getRequestUri() ?? '/', PHP_URL_PATH) ?: '/');
 
         if ($this->isStaticFile($path)) {
+            $publicFile = getcwd() . '/public/' . $this->escape($path);
             return new Response(
-                file_get_contents(getcwd() . '/public' . $path),
+                file_get_contents($publicFile),
                 200,
                 ['Content-Type' => $request->getMimeType(last(explode('.', basename($path))))]
             );
@@ -64,11 +62,14 @@ JS;
 
     protected function isStaticFile(string $path): bool
     {
+        $relativePath = $this->escape($path);
+        $absolutePath = getcwd() . '/public/' . $relativePath;
+
         return in_array(
-            pathinfo($path, PATHINFO_EXTENSION),
+            strtolower(pathinfo($path, PATHINFO_EXTENSION)),
             ['css', 'js', 'png', 'jpg', 'jpeg', 'gif', 'svg', 'woff', 'woff2', 'ttf', 'eot']
         )
-        && $this->finder->name($this->escape($path))->hasResults();
+        && is_file($absolutePath);
     }
 
     protected function escape(string $path): string
