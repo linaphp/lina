@@ -15,7 +15,7 @@ class Content
     /** @var string $path  The relative path to the `content` folder */
     public string $path;
 
-    public function __construct(string $path, string $slug, string $content, array $meta = [], string $createdAt = null)
+    public function __construct(string $path, string $slug, string $content, array $meta = [], ?string $createdAt = null)
     {
         $this->slug = $slug;
         $this->content = $content;
