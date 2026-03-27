@@ -61,8 +61,11 @@ JS;
 
     protected function isStaticFile(string $path): bool
     {
-        return in_array(pathinfo($path, PATHINFO_EXTENSION), ['css', 'js', 'png', 'jpg', 'jpeg', 'gif', 'svg', 'woff', 'woff2', 'ttf', 'eot'])
-            && $this->finder->name($this->escape($path))->hasResults();
+        return in_array(
+            pathinfo($path, PATHINFO_EXTENSION),
+            ['css', 'js', 'png', 'jpg', 'jpeg', 'gif', 'svg', 'woff', 'woff2', 'ttf', 'eot']
+        )
+        && $this->finder->name($this->escape($path))->hasResults();
     }
 
     protected function escape(string $path): string
